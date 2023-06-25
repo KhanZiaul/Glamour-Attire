@@ -27,6 +27,30 @@ const LatestInformations = () => {
                     </div>
                 </div>
             </div>
+
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8'>
+                <div className='relative'>
+                    <img className='h-[350px]' src={image3} alt="" />
+                    <div className='absolute bottom-20 left-7 space-y-2'>
+                        <h2 className='text-3xl font-bold text-white'>SEASONAL SALE</h2>
+                        <p className='font-semibold text-red-800'>Winter Collection - 50% off</p>
+                    </div>
+                </div>
+                <div className='relative'>
+                    <img className='h-[350px]' src={image4} alt="" />
+                    <div className='absolute bottom-12 left-7 space-y-2'>
+                        <h2 className='text-3xl font-bold text-white'>NEW FOOTWEAR COLLECTION</h2>
+                        <p className='font-semibold text-red-800'>Spring/Summer 2023</p>
+                    </div>
+                </div>
+                <div className='relative'>
+                    <img className='h-[350px]' src={image5} alt="" />
+                    <div className='absolute bottom-20 left-7 space-y-2'>
+                        <h2 className='text-3xl font-bold text-white'>T-SHIRTS</h2>
+                        <p className='font-semibold text-red-800'>New Trendy Prints</p>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
