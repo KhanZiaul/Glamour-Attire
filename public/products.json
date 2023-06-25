@@ -1,0 +1,146 @@
+[
+    {
+        "brand": "Nike",
+        "product-name": "Logo Print T-Shirt",
+        "ratings": 4.6,
+        "price": 29.99,
+        "product-details": "Stay comfortable and stylish with the Nike Logo Print T-Shirt. Made from a soft and breathable cotton blend, this classic crew neck t-shirt features the iconic Nike logo prominently printed on the front. Whether you're hitting the gym or going for a casual outing, this t-shirt is a perfect choice.",
+        "img": "https://i.ibb.co/PDTDGR1/f1.jpg",
+        "type":"f"
+    },
+    {
+        "brand": "Adidas",
+        "product-name": "3-Stripes Graphic Tee",
+        "ratings": 4.4,
+        "price": 24.99,
+        "product-details": "Make a bold statement with the Adidas 3-Stripes Graphic Tee. Crafted with premium quality materials, this graphic t-shirt showcases the iconic Adidas 3-stripes design, adding a touch of sporty style to your outfit. The comfortable fit and durable construction make it suitable for everyday wear. Express your love for Adidas and stay on-trend with this eye-catching t-shirt.",
+        "img": "https://i.ibb.co/yQLVHmv/f2.jpg",
+        "type":"f"
+    },
+    {
+        "brand": "Puma",
+        "product-name": "Essentials Logo T-Shirt",
+        "ratings": 4.3,
+        "price": 19.99,
+        "product-details": "Step up your casual game with the Puma Essentials Logo T-Shirt. Made from soft and lightweight fabric, this t-shirt offers superior comfort and breathability. It features the iconic Puma logo prominently displayed on the front, showcasing your love for the brand. Whether you're lounging at home or heading out with friends, this versatile t-shirt is a must-have in your wardrobe.",
+        "img": "https://i.ibb.co/vC9Z6fx/f3.jpg",
+        "type":"f"
+    },
+    {
+        "brand": "Under Armour",
+        "product-name": "Tech Short Sleeve Shirt",
+        "ratings": 4.7,
+        "price": 34.99,
+        "product-details": "Stay cool and dry during intense workouts with the Under Armour Tech Short Sleeve Shirt. Engineered with UA Tech fabric, this t-shirt provides excellent moisture-wicking properties to keep you comfortable and focused. The loose fit and raglan sleeves allow for unrestricted movement. Whether you're hitting the gym or going for a run, this performance t-shirt will be your go-to option.",
+        "img": "https://i.ibb.co/hVP5k5R/f4.jpg",
+        "type":"f"
+    },
+    {
+        "brand": "H&M",
+        "product-name": "Basic V-Neck T-Shirt",
+        "ratings": 4.2,
+        "price": 9.99,
+        "product-details": "Create effortless style with the H&M Basic V-Neck T-Shirt. Made from soft and durable cotton, this versatile t-shirt features a classic V-neckline and a comfortable regular fit. It's an essential wardrobe staple that can be dressed up or down. Pair it with jeans for a casual look or layer it under a blazer for a more polished ensemble. Experience comfort and timeless style with this classic t-shirt.",
+        "img": "https://i.ibb.co/BCQfYT4/f5.jpg",
+        "type":"f"
+    },
+    {
+        "brand": "Zara",
+        "product-name": "Striped Pocket T-Shirt",
+        "ratings": 4.5,
+        "price": 19.99,
+        "product-details": "Add a touch of sophistication to your casual wardrobe with the Zara Striped Pocket T-Shirt. Made from a soft and breathable fabric, this t-shirt features a stylish striped pattern and a functional front pocket. The relaxed fit and crew neck design ensure all-day comfort. Pair it with chinos or shorts for a relaxed yet refined look. Elevate your style game with this versatile t-shirt.",
+        "img": "https://i.ibb.co/hcQxkKr/f6.jpg",
+        "type":"f"
+    },
+    {
+        "brand": "Levi's",
+        "product-name": "511 Slim Fit Jeans",
+        "ratings": 4.8,
+        "price": 79.99,
+        "product-details": "Achieve a modern and stylish look with the Levi's 511 Slim Fit Jeans. These jeans are crafted from high-quality denim and feature a slim fit that sits below the waist. With their classic five-pocket styling and versatile design, they can be dressed up or down for various occasions. Experience comfort and durability with this timeless wardrobe essential.",
+        "img": "https://i.ibb.co/qNY3Lqb/f7.jpg",
+        "type":"f"
+    },
+    {
+        "brand": "American Eagle",
+        "product-name": "Graphic Print T-Shirt",
+        "ratings": 4.3,
+        "price": 22.99,
+        "product-details": "Express your unique personality with the American Eagle Graphic Print T-Shirt. Made from soft and breathable fabric, this t-shirt features a trendy graphic print that adds a pop of color and style to your outfit. The relaxed fit and comfortable feel make it a great choice for everyday wear. Whether you're hanging out with friends or attending a casual event, this t-shirt will keep you looking effortlessly cool.",
+        "img": "https://i.ibb.co/ZdH2ykQ/f8.jpg",
+        "type":"f"
+    },
+    {
+        "brand": "Urban Outfitters",
+        "product-name": "Pocket Front Tee",
+        "ratings": 4.6,
+        "price": 29.99,
+        "product-details": "Elevate your t-shirt game with the Urban Outfitters Pocket Front Tee. Made from premium quality fabric, this t-shirt features a unique pocket-front design that adds a touch of style to your casual look. The comfortable regular fit and versatile color options make it a go-to option for various occasions. Dress it up with jeans and sneakers or dress it down with shorts for a laid-back vibe.",
+        "img": "https://i.ibb.co/kDDsCMK/n1.jpg",
+        "type":"n"
+    },
+    {
+        "brand": "Forever 21",
+        "product-name": "Oversized Graphic Tee",
+        "ratings": 4.1,
+        "price": 17.99,
+        "product-details": "Make a fashion statement with the Forever 21 Oversized Graphic Tee. Crafted with a relaxed and oversized fit, this t-shirt offers a comfortable and trendy look. The eye-catching graphic print adds a unique touch, making it a great choice for those who want to stand out. Pair it with leggings or skinny jeans for a chic and effortless ensemble. Embrace your individuality with this stylish t-shirt.",
+        "img": "https://i.ibb.co/WFVdN8L/n3.jpg",
+        "type":"n"
+    },
+    {
+        "brand": "Tommy Hilfiger",
+        "product-name": "Logo Flag T-Shirt",
+        "ratings": 4.7,
+        "price": 39.99,
+        "product-details": "Showcase your timeless style with the Tommy Hilfiger Logo Flag T-Shirt. Crafted from soft and breathable fabric, this t-shirt features the iconic Tommy Hilfiger logo flag prominently displayed on the chest. The regular fit and classic crew neck design make it a versatile piece that can be paired with jeans or shorts for a casual yet polished look.",
+        "img": "https://i.ibb.co/PjNhFng/n2.jpg",
+        "type":"n"
+    },
+    {
+        "brand": "Calvin Klein",
+        "product-name": "Cotton Stretch V-Neck T-Shirt",
+        "ratings": 4.6,
+        "price": 29.99,
+        "product-details": "Experience superior comfort and style with the Calvin Klein Cotton Stretch V-Neck T-Shirt. Made from a premium blend of cotton and elastane, this t-shirt offers a soft and stretchy fit that moves with you. The V-neck design adds a touch of sophistication, making it suitable for both casual and semi-formal occasions. Elevate your basics with this versatile and high-quality t-shirt.",
+        "img": "https://i.ibb.co/HxBHmqw/n4.jpg",
+        "type":"n"
+    },
+    {
+        "brand": "Ralph Lauren",
+        "product-name": "Classic Fit Polo Shirt",
+        "ratings": 4.9,
+        "price": 89.99,
+        "product-details": "Embrace timeless elegance with the Ralph Lauren Classic Fit Polo Shirt. Crafted from premium quality cotton, this polo shirt features a classic fit and the signature Ralph Lauren pony logo embroidered on the chest. The polo collar and ribbed cuffs add a touch of sophistication, making it a perfect choice for a smart-casual or preppy look.",
+        "img": "https://i.ibb.co/VqWxSf0/n5.jpg",
+        "type":"n"
+    },
+    {
+        "brand": "H&M",
+        "product-name": "Tailored Chino Pants",
+        "ratings": 4.5,
+        "price": 39.99,
+        "product-details": "Upgrade your wardrobe with the H&M Tailored Chino Pants. Made from a cotton blend with a touch of stretch, these pants offer both comfort and style. Featuring a tailored fit and versatile design, they can be dressed up for formal occasions or dressed down for a more casual look. The classic chino style and impeccable craftsmanship make them a must-have for any fashion-savvy individual.",
+        "img": "https://i.ibb.co/V3j3jB5/n6.jpg",
+        "type":"n"
+    },
+    {
+        "brand": "Gucci",
+        "product-name": "Logo Print Oversized T-Shirt",
+        "ratings": 4.5,
+        "price": 450.00,
+        "product-details": "Make a bold fashion statement with the Gucci Logo Print Oversized T-Shirt. Crafted from premium quality cotton, this t-shirt features an oversized fit and the iconic Gucci logo printed across the front. With its unique design and luxurious craftsmanship, this t-shirt exudes high-end style and sophistication.",
+        "img": "https://i.ibb.co/gTVDHGv/n7.jpg",
+        "type":"n"
+    },
+    {
+        "brand": "Versace",
+        "product-name": "Medusa Head Print T-Shirt",
+        "ratings": 4.7,
+        "price": 550.00,
+        "product-details": "Make a bold statement with the Versace Medusa Head Print T-Shirt. Crafted from high-quality cotton, this t-shirt features a striking Medusa head print, a signature motif of the brand. The crew neck design and regular fit offer a comfortable and stylish look. Elevate your wardrobe with this luxurious and iconic t-shirt from Versace.",
+        "img": "https://i.ibb.co/C5Q9p24/n8.jpg",
+        "type":"n"
+    }
+]
