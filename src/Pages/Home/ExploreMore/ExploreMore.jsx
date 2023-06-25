@@ -6,7 +6,7 @@ const ExploreMore = () => {
             <div className='pt-20 text-center space-y-4'>
                 <p className='text-xl font-semibold'>Repair Services</p>
                 <h2 className='text-4xl font-bold'>Up to <span className='text-red-600'>70% off</span> - All T-shirt & Accessories</h2>
-                <button className='btn'>Explore More</button>
+                <button className='btn hover:bg-[#176B87] hover:text-white'>Explore More</button>
             </div>
         </div>
     );
