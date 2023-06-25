@@ -1,11 +1,12 @@
 import { NavLink } from "react-router-dom";
-
+import logo from '../../../assets/img/logo.png'
 
 const Navbar = () => {
     return (
         <div className="fixed w-full">
             <div className="navbar bg-[#9DB2BF] text-white font-semibold shadow-xl">
                 <div className="flex-1">
+                    <img className="w-6" src={logo} alt="" />
                     <a className="text-xl">Glamour Attire</a>
                 </div>
                 <div className="flex-none">
