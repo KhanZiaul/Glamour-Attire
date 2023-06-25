@@ -15,7 +15,7 @@ const ShortFeatures = () => {
         { image: image6, name: 'F24/7 Support' }
     ]
     return (
-        <div className='flex mx-auto w-[90%] justify-between my-8'>
+        <div className='flex flex-col lg:flex-row mx-auto w-[90%] justify-between my-8'>
             {
                 features.map((feature, index) => {
                     return (

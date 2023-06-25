@@ -5,3 +5,9 @@
     background-size: cover;
     padding-top: 850px;
 }
+
+@media (max-width: 600px) {
+    .bg-image{
+        padding-top: 500px;
+    }
+  }
