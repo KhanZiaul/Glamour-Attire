@@ -4,7 +4,7 @@ import logo from '../../../assets/img/logo.png'
 const Navbar = () => {
     return (
         <div className="fixed z-10 w-full">
-            <div className="navbar bg-[#9DB2BF] text-white font-semibold shadow-xl">
+            <div className="navbar bg-[#9DB2BF] font-semibold shadow-xl">
                 <div className="flex-1">
                     <img className="w-6" src={logo} alt="" />
                     <a className="text-xl">Glamour Attire</a>
@@ -25,7 +25,15 @@ const Navbar = () => {
                                 isActive ? "active" : ""
                             }
                         >
-                            PRODUCTS
+                            SHOP
+                        </NavLink>
+                        <NavLink
+                            to="/messages"
+                            className={({ isActive }) =>
+                                isActive ?  "active" : ""
+                            }
+                        >
+                            BLOG
                         </NavLink>
                         <NavLink
                             to="/messages"
@@ -33,7 +41,15 @@ const Navbar = () => {
                                 isActive ? "active" : ""
                             }
                         >
-                            DASHBOARD
+                            ABOUT
+                        </NavLink>
+                        <NavLink
+                            to="/messages"
+                            className={({ isActive }) =>
+                                isActive ? "active" : ""
+                            }
+                        >
+                            CONTACT
                         </NavLink>
                     </div>
 
@@ -44,15 +60,6 @@ const Navbar = () => {
                                 <span className="badge badge-sm indicator-item">8</span>
                             </div>
                         </label>
-                        <div tabIndex={0} className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
-                            <div className="card-body">
-                                <span className="font-bold text-lg">8 Items</span>
-                                <span className="text-info">Subtotal: $999</span>
-                                <div className="card-actions">
-                                    <button className="btn btn-primary btn-block">View cart</button>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <div className="dropdown dropdown-end ms-5">
                         <label tabIndex={0}>
@@ -64,12 +71,6 @@ const Navbar = () => {
                             </div>
                         </label>
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                            <li>
-                                <a className="justify-between">
-                                    Profile
-                                    <span className="badge">New</span>
-                                </a>
-                            </li>
                             <li><a>Settings</a></li>
                             <li><a>Logout</a></li>
                         </ul>
