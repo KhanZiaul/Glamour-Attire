@@ -1,13 +1,15 @@
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form"
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import { updateProfile } from "firebase/auth";
+import { FaGoogle, FaGithub } from "react-icons/fa";
 
 const Register = () => {
 
     const { createUser, signInPopup } = useContext(AuthContext)
-
+    const [color, setColor] = useState(true)
+    const [registerMessage, setRegisterMessage] = useState('')
     const {
         register, formState: { errors }, reset, handleSubmit,
     } = useForm()
@@ -16,18 +18,23 @@ const Register = () => {
         console.log(data)
         createUser(data.email, data.password)
             .then((userCredential) => {
-
                 const user = userCredential.user;
+                console.log(user)
                 updateProfile(userCredential.user, {
-                    displayName: data.name, photoURL:data.URL
+                    displayName: data.name, photoURL: data.URL
                 }).then(() => {
-                
+
                 }).catch((error) => {
-               
+
                 });
+                setRegisterMessage('Successfully Register')
+                setColor(true)
+                reset()
             })
             .catch((error) => {
                 const errorMessage = error.message;
+                setRegisterMessage(errorMessage)
+                setColor(false)
             });
     }
     return (
@@ -73,10 +80,33 @@ const Register = () => {
                             </label>
 
                         </div>
+
+                        <p className={`text-center my-3 font-bold  ${color ? 'text-green-500' : 'text-red-500'}`}>{registerMessage}</p>
+
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Register</button>
                         </div>
                     </form>
+                    <div className="flex justify-center gap-10 mb-8">
+
+                        <div className='flex flex-col md:flex-row gap-5 justify-around'>
+                            <div className='inline-block'>
+                                <div className='cursor-pointer border-2 flex items-center rounded-lg text-blue-700 px-8 py-3 gap-4 hover:bg-sky-800 hover:text-white border-sky-500'>
+                                    <FaGoogle></FaGoogle>
+                                    <span>Google Sign-in</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='flex flex-col md:flex-row gap-5 justify-around'>
+                            <div className='inline-block'>
+                                <div className='cursor-pointer border-2 flex items-center rounded-lg text-blue-700 px-8 py-3 gap-4 hover:bg-sky-800 hover:text-white border-sky-500'>
+                                    <FaGithub></FaGithub>
+                                    <span>Github Sign-in</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
