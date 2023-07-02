@@ -3,6 +3,7 @@ import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
 import { BsCart2 } from 'react-icons/bs';
 import { Link } from "react-router-dom";
+import bgImage from '../../assets/img/banner/b1.jpg'
 
 const Shop = () => {
     const [products, setProducts] = useState()
@@ -14,7 +15,17 @@ const Shop = () => {
             })
     }, [])
     return (
-        <div className="pt-28 mb-16">
+        <div className="pt-16 mb-16">
+            <div className="hero h-[300px] mb-10" style={{ backgroundImage: `url(${bgImage})` }}>
+                <div className="hero-overlay bg-opacity-60"></div>
+                <div className="hero-content text-center text-neutral-content">
+                    <div className="max-w-md">
+                        <h1 className="mb-5 text-5xl font-bold">#stayhome</h1>
+                        <p className="mb-5">Save more with coupons & up to 70% off!</p>
+                    </div>
+                </div>
+            </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto w-[90%] gap-8">
                 {
                     products?.map(product => {
