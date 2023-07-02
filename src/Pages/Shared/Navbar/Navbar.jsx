@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from '../../../assets/img/logo.png'
 
 const Navbar = () => {
@@ -12,7 +12,7 @@ const Navbar = () => {
                 <div className="flex-none">
                     <div className="flex gap-5">
                         <NavLink
-                            to="/messages"
+                            to="/"
                             className={({ isActive }) =>
                                 isActive ? "active" : ""
                             }
@@ -30,7 +30,7 @@ const Navbar = () => {
                         <NavLink
                             to="/messages"
                             className={({ isActive }) =>
-                                isActive ?  "active" : ""
+                                isActive ? "active" : ""
                             }
                         >
                             BLOG
@@ -67,13 +67,13 @@ const Navbar = () => {
                                 <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
                             </div> */}
                             <div >
-                                <button className="px-5 py-2 rounded-md bg-sky-700 text-white font-semibold">Login</button>
+                                <Link to='/login'><button className="px-5 py-2 rounded-md bg-sky-700 text-white font-semibold">Login</button></Link>
                             </div>
                         </label>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                        {/* <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                             <li><a>Settings</a></li>
                             <li><a>Logout</a></li>
-                        </ul>
+                        </ul> */}
                     </div>
                 </div>
             </div>
