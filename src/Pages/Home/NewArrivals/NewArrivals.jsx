@@ -20,7 +20,7 @@ const NewArrivals = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto w-[90%] my-8 gap-8">
                 {
-                    newProducts?.map(newProduct => {
+                    newProducts?.slice(0,6).map(newProduct => {
                         return (
                             <div className="border-2 p-5 space-y-2 rounded-2xl" key={newProduct._id}>
                                 <img className="w-full lg:h-80 mx-auto rounded-2xl" src={newProduct.img} alt="" />
