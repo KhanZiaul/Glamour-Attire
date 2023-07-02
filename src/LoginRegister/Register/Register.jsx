@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form"
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
-import { updateProfile } from "firebase/auth";
+import { GoogleAuthProvider, updateProfile } from "firebase/auth";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 
 const Register = () => {
@@ -10,6 +10,7 @@ const Register = () => {
     const { createUser, signInPopup } = useContext(AuthContext)
     const [color, setColor] = useState(true)
     const [registerMessage, setRegisterMessage] = useState('')
+    const googleProvider = new GoogleAuthProvider();
     const {
         register, formState: { errors }, reset, handleSubmit,
     } = useForm()
@@ -25,7 +26,9 @@ const Register = () => {
                 }).then(() => {
 
                 }).catch((error) => {
-
+                    const errorMessage = error.message;
+                    setRegisterMessage(errorMessage)
+                    setColor(false)
                 });
                 setRegisterMessage('Successfully Register')
                 setColor(true)
@@ -37,6 +40,21 @@ const Register = () => {
                 setColor(false)
             });
     }
+
+    function googleHandler() {
+        signInPopup(googleProvider)
+            .then((result) => {
+                const user = result.user;
+                console.log(user)
+                setRegisterMessage('Successfully Register')
+                setColor(true)
+            }).catch((error) => {
+                const errorMessage = error.message;
+                setRegisterMessage(errorMessage)
+                setColor(false)
+            });
+    }
+
     return (
         <div className="hero pt-24 pb-8 bg-base-200">
             <div className="flex-col w-2/4">
@@ -91,7 +109,7 @@ const Register = () => {
 
                         <div className='flex flex-col md:flex-row gap-5 justify-around'>
                             <div className='inline-block'>
-                                <div className='cursor-pointer border-2 flex items-center rounded-lg text-blue-700 px-8 py-3 gap-4 hover:bg-sky-800 hover:text-white border-sky-500'>
+                                <div onClick={googleHandler} className='cursor-pointer border-2 flex items-center rounded-lg text-blue-700 px-8 py-3 gap-4 hover:bg-blue-800 hover:text-white border-blue-700'>
                                     <FaGoogle></FaGoogle>
                                     <span>Google Sign-in</span>
                                 </div>
@@ -100,7 +118,7 @@ const Register = () => {
 
                         <div className='flex flex-col md:flex-row gap-5 justify-around'>
                             <div className='inline-block'>
-                                <div className='cursor-pointer border-2 flex items-center rounded-lg text-blue-700 px-8 py-3 gap-4 hover:bg-sky-800 hover:text-white border-sky-500'>
+                                <div className='cursor-pointer border-2 flex items-center rounded-lg text-blue-700 px-8 py-3 gap-4 hover:bg-blue-800 hover:text-white border-blue-700'>
                                     <FaGithub></FaGithub>
                                     <span>Github Sign-in</span>
                                 </div>
