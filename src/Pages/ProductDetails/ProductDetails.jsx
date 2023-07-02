@@ -17,31 +17,27 @@ const ProductDetails = () => {
     console.log(data)
 
     return (
-        <div className="pt-24 flex items-center gap-10 mb-10 w-[95%] mx-auto">
+        <div className="pt-24 flex flex-col lg:flex-row items-center gap-10 mb-10 w-[95%] mx-auto">
             <div>
                 <img className="rounded-xl" src={data?.img} alt="" />
             </div>
             <div className="space-y-4">
-                <p>Home/{data?.brand}</p>
-                <p>{data?.productName}</p>
-                <p>${data?.price}</p>
-                <select className="select select-bordered w-full max-w-xs">
-                    <option disabled selected>Normal</option>
-                    <option>Normal Apple</option>
-                    <option>Normal Orange</option>
-                    <option>Normal Tomato</option>
+                <p className="font-bold">Home / {data?.brand}</p>
+                <p className="text-xl font-bold">{data?.productName}</p>
+                <p className="text-3xl font-bold">${data?.price}</p>
+                <select className="select w-full max-w-xs border-sky-700">
+                    <option disabled selected>Select Size</option>
+                    <option>XL</option>
+                    <option>XXL</option>
+                    <option>Small</option>
+                    <option>Large</option>
                 </select>
-                <div className="flex">
-                    <select className="select select-bordered w-full max-w-xs">
-                        <option disabled selected>Normal</option>
-                        <option>Normal Apple</option>
-                        <option>Normal Orange</option>
-                        <option>Normal Tomato</option>
-                    </select>
-                    <button className="btn btn-primary">Add To Cart</button>
+                <div className="flex flex-col lg:flex-row gap-5">
+                    <input className="border-2 rounded-md w-20 max-w-xs p-2 border-sky-700" defaultValue={1} min='1' type="number" name="" id="" />
+                    <button className="px-5 py-2 rounded-md bg-sky-700 text-white font-semibold count">Add To Cart</button>
                 </div>
-                <p>Product Details</p>
-                <p>{data?.productDetails}</p>
+                <p className="text-xl font-bold">Product Details</p>
+                <p className="text-justify">{data?.productDetails}</p>
             </div>
         </div>
     );
