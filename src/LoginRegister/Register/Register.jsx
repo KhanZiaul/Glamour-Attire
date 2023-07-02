@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form"
 
 const Register = () => {
     const {
-        register, reset ,handleSubmit,
+        register, formState: { errors } , reset ,handleSubmit,
     } = useForm()
 
     const onSubmit = (data) => {
@@ -39,7 +39,12 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input {...register("password", { required: true })} type="password" placeholder="Enter your password" className="input input-bordered" />
+                            <input type="password" {...register("password", { required: true, maxLength: 20 , minLength:6, pattern: /^[A-Za-z]+$/i })} placeholder="Enter your password" className="input input-bordered" />
+
+                            {errors.password?.type ==='maxLength' && <p role="alert" className='text-red-500 font-bold my-2'>password should not be more than 20 characters</p>}
+
+                            {errors.password?.type ==='minLength' && <p role="alert" className='text-red-500 font-bold my-2'>password should be at least 6 characters</p>}
+
                             <label className="label mt-4">
                                 <p className="label-text-alt">Already have an account? <span className="link link-hover text-blue-700"><Link to='/login'>Login Now</Link></span></p>
                             </label>
