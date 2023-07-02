@@ -7,7 +7,7 @@ const Navbar = () => {
             <div className="navbar bg-[#9DB2BF] font-semibold shadow-xl">
                 <div className="flex-1">
                     <img className="w-6" src={logo} alt="" />
-                    <a className="text-xl">Glamour Attire</a>
+                    <Link to='/' className="text-xl cursor-pointer">Glamour Attire</Link>
                 </div>
                 <div className="flex-none">
                     <div className="flex gap-5">
