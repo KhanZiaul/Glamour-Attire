@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form"
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
-import { GoogleAuthProvider, updateProfile } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, updateProfile } from "firebase/auth";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 
 const Register = () => {
@@ -11,6 +11,7 @@ const Register = () => {
     const [color, setColor] = useState(true)
     const [registerMessage, setRegisterMessage] = useState('')
     const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
     const {
         register, formState: { errors }, reset, handleSubmit,
     } = useForm()
@@ -43,6 +44,20 @@ const Register = () => {
 
     function googleHandler() {
         signInPopup(googleProvider)
+            .then((result) => {
+                const user = result.user;
+                console.log(user)
+                setRegisterMessage('Successfully Register')
+                setColor(true)
+            }).catch((error) => {
+                const errorMessage = error.message;
+                setRegisterMessage(errorMessage)
+                setColor(false)
+            });
+    }
+
+    function githubHandler() {
+        signInPopup(githubProvider)
             .then((result) => {
                 const user = result.user;
                 console.log(user)
@@ -102,23 +117,23 @@ const Register = () => {
                         <p className={`text-center my-3 font-bold  ${color ? 'text-green-500' : 'text-red-500'}`}>{registerMessage}</p>
 
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">Register</button>
+                            <button className="btn btn-primary text-white">Register</button>
                         </div>
                     </form>
                     <div className="flex justify-center gap-10 mb-8">
 
-                        <div className='flex flex-col md:flex-row gap-5 justify-around'>
+                        <div className='flex flex-col md:flex-row gap-5 justify-around shadow-2xl'>
                             <div className='inline-block'>
-                                <div onClick={googleHandler} className='cursor-pointer border-2 flex items-center rounded-lg text-blue-700 px-8 py-3 gap-4 hover:bg-blue-800 hover:text-white border-blue-700'>
+                                <div onClick={googleHandler} className='cursor-pointer flex items-center rounded-lg text-blue-700 px-8 py-3 gap-4 hover:bg-blue-800 hover:text-white'>
                                     <FaGoogle></FaGoogle>
                                     <span>Google Sign-in</span>
                                 </div>
                             </div>
                         </div>
 
-                        <div className='flex flex-col md:flex-row gap-5 justify-around'>
+                        <div className='flex flex-col md:flex-row gap-5 justify-around shadow-2xl'>
                             <div className='inline-block'>
-                                <div className='cursor-pointer border-2 flex items-center rounded-lg text-blue-700 px-8 py-3 gap-4 hover:bg-blue-800 hover:text-white border-blue-700'>
+                                <div onClick={githubHandler} className='cursor-pointer flex items-center rounded-lg text-blue-700 px-8 py-3 gap-4 hover:bg-blue-800 hover:text-white '>
                                     <FaGithub></FaGithub>
                                     <span>Github Sign-in</span>
                                 </div>
