@@ -24,8 +24,7 @@ const AuthProvider = ({ children }) => {
         return signInWithPopup(auth, provider)
     }
 
-    function passwordReset(email) {
-        setLoading(true)
+    function passwordResetEmail(email) {
         return sendPasswordResetEmail(auth, email)
     }
 
@@ -50,7 +49,7 @@ const AuthProvider = ({ children }) => {
         signinUser,
         signInPopup,
         loading,
-        passwordReset,
+        passwordResetEmail,
         logOut
     }
 

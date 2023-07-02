@@ -1,14 +1,13 @@
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form"
-import { useContext, useRef, useState } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 
 const Login = () => {
 
-    const { signinUser, signInPopup, passwordReset } = useContext(AuthContext)
-    const reference = useRef()
+    const { signinUser, signInPopup } = useContext(AuthContext)
     const [color, setColor] = useState(true)
     const [loginMessage, setLoginMessage] = useState('')
     const googleProvider = new GoogleAuthProvider();
@@ -63,21 +62,6 @@ const Login = () => {
             });
     }
 
-    function passwordResetHandler() {
-        const Email = reference.current?.value;
-        if (!Email) {
-            return alert('please provide email')
-        }
-        passwordReset(Email)
-            .then(() => {
-                alert('password reset email send')
-            })
-            .catch((error) => {
-                const errorMessage = error.message;
-                alert(errorMessage)
-            });
-    }
-
     return (
         <div className="hero pt-24 pb-8 bg-base-200">
             <div className="flex-col w-2/4">
@@ -90,7 +74,7 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input ref={reference} {...register("email", { required: true })} type="email" placeholder="Enter your email" className="input input-bordered" />
+                            <input {...register("email", { required: true })} type="email" placeholder="Enter your email" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
@@ -98,19 +82,14 @@ const Login = () => {
                             </label>
                             <input type="password" {...register("password", { required: true })} placeholder="Enter your password" className="input input-bordered" />
 
-                            <label className="label my-3">
-                                <button onClick={passwordResetHandler} className="label-text-alt link link-hover text-blue-700">Forgot password?</button>
-                            </label>
-
-                            <label className="label">
+                            <label className="label my-4">
                                 <p className="label-text-alt">New to Glamour Attire? <span className="link link-hover text-blue-700"><Link to='/register'>Register Now</Link></span></p>
                             </label>
-
                         </div>
 
                         <p className={`text-center my-3 font-bold  ${color ? 'text-green-500' : 'text-red-500'}`}>{loginMessage}</p>
 
-                        <div className="form-control mt-6">
+                        <div className="form-control">
                             <button className="btn btn-primary text-white">LOGIN</button>
                         </div>
                     </form>
