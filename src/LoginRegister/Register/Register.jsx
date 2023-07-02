@@ -1,13 +1,34 @@
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form"
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
+
+    const { createUser, signInPopup } = useContext(AuthContext)
+
     const {
-        register, formState: { errors } , reset ,handleSubmit,
+        register, formState: { errors }, reset, handleSubmit,
     } = useForm()
 
     const onSubmit = (data) => {
         console.log(data)
+        createUser(data.email, data.password)
+            .then((userCredential) => {
+
+                const user = userCredential.user;
+                updateProfile(userCredential.user, {
+                    displayName: data.name, photoURL:data.URL
+                }).then(() => {
+                
+                }).catch((error) => {
+               
+                });
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+            });
     }
     return (
         <div className="hero pt-24 pb-8 bg-base-200">
@@ -39,13 +60,13 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" {...register("password", { required: true, maxLength: 20 , minLength:6, pattern: /^(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[A-Z]).+$/, })} placeholder="Enter your password" className="input input-bordered" />
+                            <input type="password" {...register("password", { required: true, maxLength: 20, minLength: 6, pattern: /^(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[A-Z]).+$/, })} placeholder="Enter your password" className="input input-bordered" />
 
-                            {errors.password?.type ==='maxLength' && <p role="alert" className='text-red-500 font-bold my-2'>password should not be more than 20 characters</p>}
+                            {errors.password?.type === 'maxLength' && <p role="alert" className='text-red-500 font-bold my-2'>password should not be more than 20 characters</p>}
 
-                            {errors.password?.type ==='minLength' && <p role="alert" className='text-red-500 font-bold my-2'>password should be at least 6 characters</p>}
+                            {errors.password?.type === 'minLength' && <p role="alert" className='text-red-500 font-bold my-2'>password should be at least 6 characters</p>}
 
-                            {errors.password?.type ==='pattern' && <p role="alert" className='text-red-500 font-bold my-2'>password should be at least one number, one special character and one uppercase</p>}
+                            {errors.password?.type === 'pattern' && <p role="alert" className='text-red-500 font-bold my-2'>password should be at least one number, one special character and one uppercase</p>}
 
                             <label className="label mt-4">
                                 <p className="label-text-alt">Already have an account? <span className="link link-hover text-blue-700"><Link to='/login'>Login Now</Link></span></p>
