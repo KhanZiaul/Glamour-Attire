@@ -1,7 +1,20 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from '../../../assets/img/logo.png'
+import { useContext } from "react";
+import { AuthContext } from "../../../Provider/AuthProvider/AuthProvider";
+import { FaUser } from 'react-icons/fa';
 
 const Navbar = () => {
+
+    const { user, logOut } = useContext(AuthContext)
+    function logOutHandler() {
+        logOut().then(() => {
+
+        }).catch((error) => {
+            console.log(error)
+        });
+    }
+
     return (
         <div className="fixed z-10 w-full">
             <div className="navbar bg-[#9DB2BF] font-semibold shadow-xl">
@@ -66,9 +79,23 @@ const Navbar = () => {
                             {/* <div className="w-10 rounded-full">
                                 <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
                             </div> */}
-                            <div >
-                                <Link to='/login'><button className="px-5 py-2 rounded-md bg-sky-700 text-white font-semibold">Login</button></Link>
-                            </div>
+
+                            {
+                                user ?
+                                    <div className='flex flex-col md:flex-row items-center gap-3'>
+                                        <div className="flex items-center justify-center">
+                                            {
+                                                user?.photoURL ?
+                                                    <img title={user.displayName} src={user.photoURL} className='w-12 h-12 rounded-full cursor-pointer' alt="" />
+                                                    :
+                                                    <FaUser title={user.displayName} className=' bg-slate-400 w-12 h-12 rounded-full cursor-pointer p-2' />
+                                            }
+                                        </div>
+                                        <button onClick={logOutHandler} className="px-5 py-2 rounded-md bg-sky-700 text-white font-semibold">Log out</button>
+                                    </div>
+                                    :
+                                    <Link to='/login'><button className="px-5 py-2 rounded-md bg-sky-700 text-white font-semibold">Login</button></Link>
+                            }
                         </label>
                         {/* <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                             <li><a>Settings</a></li>
