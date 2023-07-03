@@ -12,7 +12,7 @@ function useSeller() {
         enabled: !loading,
         queryFn: async () => {
             const res = await axiosSecure.get(`/admin/${user?.email}`)
-            return res.data.isSeller
+            return res.data.seller
         }
     })
     return [isSeller, refetch, isLoading]
