@@ -76,9 +76,6 @@ const Navbar = () => {
                     </div>
                     <div className="dropdown dropdown-end ms-5">
                         <label tabIndex={0}>
-                            {/* <div className="w-10 rounded-full">
-                                <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                            </div> */}
 
                             {
                                 user ?
