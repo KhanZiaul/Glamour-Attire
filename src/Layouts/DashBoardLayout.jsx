@@ -57,7 +57,7 @@ const DashboardLayout = () => {
                                 <>
                                     <li>
                                         <NavLink
-                                            to="/dashboard/addAClass"
+                                            to="/dashboard/addNewProduct"
                                             className={({ isActive }) => (isActive ? "active" : "")}
                                         >
                                             <MdPostAdd className="w-5 h-5 text-white"></MdPostAdd> ADD NEW PRODUCT
@@ -65,7 +65,7 @@ const DashboardLayout = () => {
                                     </li>
                                     <li>
                                         <NavLink
-                                            to="/dashboard/myClasses"
+                                            to="/dashboard/myNewProducts"
                                             className={({ isActive }) => (isActive ? "active" : "")}
                                         >
                                             <MdProductionQuantityLimits className="w-5 h-5 text-white"></MdProductionQuantityLimits>  MY NEW PRODUCTS

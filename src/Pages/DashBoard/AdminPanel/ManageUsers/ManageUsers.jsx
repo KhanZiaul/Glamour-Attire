@@ -22,6 +22,7 @@ const ManageUsers = () => {
                     showConfirmButton: false,
                     timer: 1500
                 })
+                refetch()
             })
     }
 
@@ -36,6 +37,7 @@ const ManageUsers = () => {
                     showConfirmButton: false,
                     timer: 1500
                 })
+                refetch()
             })
     }
 
@@ -61,6 +63,7 @@ const ManageUsers = () => {
                                 'success'
                             )
                         }
+                        refetch()
                         console.log(data.data)
                     })
             }
@@ -97,7 +100,8 @@ const ManageUsers = () => {
                                         <td>{allUser.email}</td>
                                         <td className="font-bold">{allUser.role}</td>
                                         <td>
-                                            <button onClick={() => makeSeller(allUser._id)} className="btn btn-outline btn-info btn-xs" disabled={allUser.updatedRole === "true"}>Seller</button>
+                                            <button onClick={() => makeSeller(allUser._id)}
+                                             className="btn btn-outline btn-info btn-xs" disabled={allUser.updatedRole === "true"}>Seller</button>
                                         </td>
                                         <td>
                                             <button onClick={()=>makeAdmin(allUser._id)} disabled={allUser.updatedRole === "true"} className="btn btn-outline btn-success btn-xs" >Admin</button>

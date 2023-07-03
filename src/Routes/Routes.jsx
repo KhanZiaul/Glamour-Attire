@@ -9,6 +9,8 @@ import Blog from "../Pages/Blog/Blog";
 import AboutUs from "../AboutUs/AboutUs";
 import DashBoardLayout from "../Layouts/DashBoardLayout";
 import ManageUsers from "../Pages/DashBoard/AdminPanel/ManageUsers/ManageUsers";
+import AddNewProduct from "../Pages/DashBoard/SellerPanel/AddNewProduct/AddNewProduct";
+import MyNewProducts from "../Pages/DashBoard/SellerPanel/MyNewProducts/MyNewProducts";
 
 const router = createBrowserRouter([
     {
@@ -52,6 +54,14 @@ const router = createBrowserRouter([
         {
           path:'manageUsers',
           element:<ManageUsers></ManageUsers>
+        },
+        {
+          path:'addNewProduct',
+          element:<AddNewProduct></AddNewProduct>
+        },
+        {
+          path:'myNewProducts',
+          element:<MyNewProducts></MyNewProducts>
         }
       ]
     }
