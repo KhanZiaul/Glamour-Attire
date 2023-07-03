@@ -8,10 +8,10 @@ function useSeller() {
     const [axiosSecure] = useAxiosSecure()
     const { user , loading} = useContext(AuthContext)
     const { data: isSeller = [], isLoading, refetch } = useQuery({
-        queryKey: ['isAdmin'],
+        queryKey: ['isSeller'],
         enabled: !loading,
         queryFn: async () => {
-            const res = await axiosSecure.get(`/admin/${user?.email}`)
+            const res = await axiosSecure.get(`/seller/${user?.email}`)
             return res.data.seller
         }
     })
