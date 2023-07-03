@@ -78,7 +78,7 @@ const DashboardLayout = () => {
                                 <>
                                     <li>
                                         <NavLink
-                                            to="/dashboard/userClass"
+                                            to="/dashboard/customerSelectedProducts"
                                             className={({ isActive }) => (isActive ? "active" : "")}
                                         >
                                             <BiSelectMultiple className="w-5 h-5 text-white"></BiSelectMultiple>  MY SELECTED PRODUCTS

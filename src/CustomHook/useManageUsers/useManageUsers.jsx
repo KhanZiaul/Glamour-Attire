@@ -3,19 +3,19 @@ import useAxiosSecure from "../useAxiosSecure/useAxiosSecure";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 
-function useSelectedProducts(){
+function useManageUsers(){
 
     const [axiosSecure] = useAxiosSecure()
     const {loading} = useContext(AuthContext)
-    const {data: selectedProducts , refetch} = useQuery({
-        queryKey:['selectedProducts'],
+    const {data: manageUsers , refetch} = useQuery({
+        queryKey:['manageUsers'],
         enabled:!loading,
         queryFn:async()=>{
-            const res = await axiosSecure.get('/selectedProducts')
+            const res = await axiosSecure.get('/manageUsers')
             return res.data
         }
     })
-    return [selectedProducts ,refetch]
+    return [manageUsers ,refetch]
 }
 
-export default useSelectedProducts;
+export default useManageUsers;
