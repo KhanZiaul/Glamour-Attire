@@ -6,7 +6,7 @@ import { SiAmazonpay } from "react-icons/si";
 import { MdProductionQuantityLimits } from "react-icons/md";
 import { FaBloggerB } from "react-icons/fa";
 import { FaUserSecret } from "react-icons/fa";
-import { FcAbout , FcBusinessContact , FcHome , FcShop} from "react-icons/fc";
+import { FcAbout, FcBusinessContact, FcHome, FcShop } from "react-icons/fc";
 import useAdmin from "../CustomHook/useAdmin/useAdmin";
 import useSeller from "../CustomHook/useSeller/useSeller";
 
@@ -28,25 +28,25 @@ const DashboardLayout = () => {
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-                    <ul className="menu py-8 px-5 w-80 h-full bg-slate-500 gap-4 font-semibold text-white">
+                    <ul className="menu py-8 px-5 w-80 h-full bg-[#1B6B93] gap-4 font-semibold text-white">
                         {/* Sidebar content here */}
                         {
                             isAdmin && (
                                 <>
                                     <li>
                                         <NavLink
-                                            to="/dashboard/manageClasses"
-                                            className={({ isActive }) => (isActive ? "active" : "")}
-                                        >
-                                            <MdManageAccounts className="w-5 h-5 text-white"></MdManageAccounts>MANAGE SELLERS
-                                        </NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink
                                             to="/dashboard/manageUsers"
                                             className={({ isActive }) => (isActive ? "active" : "")}
                                         >
                                             <FaUserSecret className="w-5 h-5 text-white"></FaUserSecret>MANAGE USERS
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink
+                                            to="/dashboard/manageClasses"
+                                            className={({ isActive }) => (isActive ? "active" : "")}
+                                        >
+                                            <MdManageAccounts className="w-5 h-5 text-white"></MdManageAccounts>MANAGE PRODUCTS
                                         </NavLink>
                                     </li>
                                 </>
@@ -89,7 +89,7 @@ const DashboardLayout = () => {
                                             to="/dashboard/enrolledClasses"
                                             className={({ isActive }) => (isActive ? "active" : "")}
                                         >
-                                            <MdPayment className="w-5 h-5 text-white"></MdPayment> MY ORDERED PRODUCTS 
+                                            <MdPayment className="w-5 h-5 text-white"></MdPayment> MY ORDERED PRODUCTS
                                         </NavLink>
                                     </li>
                                     <li>
