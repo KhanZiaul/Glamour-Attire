@@ -4,22 +4,24 @@ import blog2 from '../../assets/img/blog/b2.jpg'
 import blog3 from '../../assets/img/blog/b3.jpg'
 import blog4 from '../../assets/img/blog/b4.jpg'
 import blog5 from '../../assets/img/blog/b5.jpg'
-import blog6 from '../../assets/img/blog/b6.jpg'
-import blog7 from '../../assets/img/blog/b7.jpg'
 
 const Blog = () => {
     const blogs = [
-        {image:blog1,title:'The Cotton-Jercy Zip-up-Hoodie'},
-        {image:blog2,title:'How to Style a Quiff'},
-        {image:blog3,title:'Must-Have Skater Girl Items'},
-        {image:blog4,title:'Runway-Inspired Trends'},
-        {image:blog5,title:'AW20 Menswear Trends'},
-        {image:blog6,title:'The Cotton-Jercy Zip-up-Hoodie'},
-        {image:blog7,title:'The Cotton-Jercy Zip-up-Hoodie'},
+        {
+            image: blog1, title: 'The Cotton-Jercy Zip-up-Hoodie', blog: 'Introducing the Cotton-Jersey Zip-up Hoodie, the perfect blend of comfort and style. Made from soft and breathable cotton-jersey fabric, this hoodie is designed to keep you cozy and relaxed throughout the day.With its versatile zip- up design, you can easily adjust the hoodie to your preferred level of warmth.Whether you are lounging at home, running errands, or heading out for a casual outing, this hoodie is a must-have wardrobe staple.The Cotton - Jersey Zip - up Hoodie features a classic hoodie silhouette with a front zipper closure, making it effortless to put on and take off.It also comes with a spacious kangaroo pocket, providing convenient storage for your essentials or a place to warm your hands on chilly days.Designed with attention to detail, this hoodie showcases ribbed cuffs and hem, adding a touch of texture and enhancing its overall durability.The relaxed fit ensures unrestricted movement, allowing you to go about your daily activities with ease.Available in a range of versatile colors, the Cotton - Jersey Zip - up Hoodie can effortlessly complement your existing wardrobe.Whether you prefer a neutral tone or a bold pop of color, there is a shade to suit every style preference.Upgrade your casualwear collection with the comfortable and stylish Cotton - Jersey Zip - up Hoodie.Perfect for layering or wearing on its own, it is a go-to choice for those seeking both comfort and fashion-forward appeal. Embrace the ultimate combination of comfort and style with this must-have hoodie.'
+        },
+        { image: blog2, title: 'How to Style a Quiff', blog: 'At Glamour Attire, we believe that fashion is an expression of individuality, and the quiff hairstyle is the perfect way to showcase your unique style. Whether you are preparing for a special occasion or simply want to elevate your everyday look, mastering the art of styling a quiff will take your fashion game to new heights. In this blog post, we will guide you through the steps of creating a stunning quiff hairstyle that perfectly complements your Glamour Attire outfits. Get ready to turn heads and exude confidence with your fashionable quiff.' },
+        {
+            image: blog3, title: 'Must-Have Skater Girl Items', blog: 'Skater girls have a distinct style that blends fashion with functionality. When it comes to must-have items for skater girls, there are a few key pieces that stand out. First and foremost, a high-quality skateboard is essential. Whether you prefer cruising around town or mastering tricks at the skatepark, having a reliable board is a must.In terms of clothing, graphic t- shirts are a staple in every skater girls wardrobe. These tees often feature bold prints, skate-related designs, or logos of popular skate brands. They effortlessly capture the essence of the skateboarding culture and can be paired with jeans, shorts, or skirts for a laid-back and edgy look.Denim shorts with a distressed or worn - out vibe are another must - have for skater girls.These shorts not only offer freedom of movement but also add a touch of rebelliousness to any outfit.Pair them with a graphic tee and some sneakers, and you are ready to hit the streets or the skatepark.Hoodies and sweatshirts are go - to items for skater girls, providing both comfort and style.Opt for oversized or cropped styles featuring skate - inspired graphics or logos.These pieces are perfect for layering over your favorite tees on chilly days or during skate sessions.No skater girl outfit is complete without a pair of iconic Vans or Converse sneakers.These classic skate shoes not only offer durability and grip but also bring a timeless cool factor to any ensemble.They are versatile enough to be worn with various outfits and are a true reflection of the skater girl aesthetic.To accessorize, snapback hats and beanies are popular choices among skater girls.These headwear options not only protect you from the elements but also add an extra element of style.Look for designs featuring skate brand logos or bold graphics to make a statement.Fishnet socks have become a fun and trendy addition to skater girl outfits.Whether peeking out from ripped jeans or worn with sneakers, they add a unique touch and a touch of femininity to your look.When it comes to carrying your essentials, a backpack or skate bag is a practical and stylish choice.Look for designs specifically made for skateboard storage, with compartments for your board, helmet, and protective gear.This ensures that you are always prepared for your skateboarding adventures.Speaking of protective gear, skater girls prioritize safety.Investing in quality protective gear such as helmets, knee pads, elbow pads, and wrist guards is crucial.Safety should never be compromised when engaging in skateboarding, and these items provide the necessary protection.However, beyond the physical items, the most important thing a skater girl can possess is confidence and attitude.Embrace your individuality, ride with passion, and let your personality shine through.Skater girls exude a sense of fearlessness and authenticity, making them a true inspiration in the skateboarding community.'
+        },
+        { image: blog4, title: 'Runway-Inspired Trends', blog: 'Welcome to Glamour Attire, your ultimate destination for runway-inspired fashion that allows you to express your unique style and embrace the latest trends. As a fashion enthusiast, you know that staying ahead of the curve is essential, and our curated collection of exquisite outfits ensures that you are always at the forefront of the fashion scene. Join us on a stylish journey as we explore the runway-inspired trends that you can effortlessly incorporate into your wardrobe with Glamour Attire. The runway is known for its fearless experimentation with prints and patterns, and at Glamour Attire, we wholeheartedly embrace this daring trend. From vibrant floral motifs to eye-catching geometric designs, our collection boasts a wide range of bold prints that will instantly elevate your look. Whether you opt for a statement dress or a chic jumpsuit, embrace your inner fashionista and let your outfit do the talking.Runway-inspired fashion is all about indulging in luxurious textures that exude opulence and elegance. At Glamour Attire, we understand the allure of texture, and our collection features an array of sumptuous fabrics such as velvet, satin, and lace. Whether it is a velvet blazer for a sophisticated evening affair or a lace-trimmed blouse for a romantic date night, our pieces are designed to make you feel like a true fashion icon. Power suiting has transcended the corporate world and become a prominent trend on the runway. At Glamour Attire, we celebrate the empowerment and confidence that comes with a well-tailored suit. Our collection offers a range of impeccably tailored blazers, trousers, and skirt suits in bold colors and modern silhouettes. Embrace your inner boss lady and make a fashion statement that commands attention.No runway-inspired look is complete without statement accessories that add that extra touch of glamour. From oversized sunglasses to chunky chain necklaces and embellished handbags, our collection of accessories allows you to experiment and express your personal style. Do not be afraid to mix and match textures, colors, and shapes to create a truly unique and eye-catching ensemble.' },
+        {
+            image: blog5, title: 'AW20 Menswear Trends', blog: 'Welcome to Glamour Attire, your ultimate destination for sophisticated and on-trend menswear. As the seasons change, it is time to refresh your wardrobe and embrace the latest AW20 menswear trends.From timeless classics to contemporary styles, our collection offers a curated selection of pieces that will elevate your style and keep you ahead of the fashion curve.Join us as we explore the must- have trends for the AW20 season and discover how Glamour Attire can help you make a fashion statement that exudes confidence and sophistication.This season, earthy tones and warm neutrals take center stage in menswear.At Glamour Attire, we have carefully curated a collection that embraces these cozy hues, allowing you to effortlessly incorporate them into your wardrobe.From rich browns and deep burgundies to warm camel and olive greens, our range of sweaters, jackets, and trousers in these colors will give your outfits a refined and autumnal touch.Oversized outerwear continues to dominate the AW20 menswear scene.At Glamour Attire, we offer a selection of oversized coats and jackets that not only provide warmth but also make a bold fashion statement.From oversized puffer jackets to longline wool coats, these pieces add a touch of contemporary flair to any outfit.Pair them with slim - fit jeans and chunky boots for a stylish and effortlessly cool look.Texture is a key element in AW20 menswear, and Glamour Attire embraces this trend with a range of textured garments.From chunky knitwear to corduroy trousers, our collection allows you to experiment with different textures and add depth to your outfits.Embrace the tactile appeal of cable - knit sweaters or opt for a velvet blazer for a luxurious touch.The combination of different textures adds interest and sophistication to your overall look.Accessories play a crucial role in completing your AW20 outfits, and Glamour Attire offers a variety of statement accessories to enhance your style.From patterned scarves and leather gloves to stylish hats and sleek belts, our collection allows you to elevate your look with the perfect finishing touches.Do not be afraid to mix and match accessories to create a personalized and fashion-forward ensemble.'
+        }
     ]
     return (
         <div className="pt-16 mb-10">
-            <div className="hero h-[300px]" style={{backgroundImage:`url(${bgImage})`}}>
+            <div className="hero h-[300px]" style={{ backgroundImage: `url(${bgImage})` }}>
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-md">
@@ -28,10 +30,28 @@ const Blog = () => {
                     </div>
                 </div>
             </div>
-            <div>
-                <div>
-                    <img src="" alt="" />
-                </div>
+            <div className='my-16'>
+                {
+                    blogs.map((blog, index) => {
+                        return (
+                            <div key={index}>
+                                <div className='flex justify-center gap-10 mb-8 items-center'>
+                                    <div>
+                                        <img className='w-[350px] h-[350px]' src={blog.image} alt="" />
+                                    </div>
+                                    <div className='w-[50%] space-y-4'>
+                                        <p className='text-2xl font-bold'>{blog.title}</p>
+                                        <p className='text-justify'>{blog.blog.slice(0, 200)}...</p>
+
+                                        <div>
+                                            <p className='font-bold uppercase text-blue-700 cursor-pointer'>Continue Reading</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    })
+                }
             </div>
         </div>
     );
