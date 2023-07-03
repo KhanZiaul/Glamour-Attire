@@ -9,7 +9,7 @@ const axiosSecure = axios.create({
 
 function useAxiosSecure() {
 
-    const {logOut} = useContext(AuthContext)
+    const { logOut } = useContext(AuthContext)
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -29,7 +29,8 @@ function useAxiosSecure() {
                 return Promise.reject(error);
             }
         )
-    }, [logOut,navigate])
+    }, [logOut, navigate])
+
     return [axiosSecure]
 }
 export default useAxiosSecure;
