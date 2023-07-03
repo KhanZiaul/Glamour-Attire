@@ -7,6 +7,7 @@ import Shop from "../Pages/Shop/Shop";
 import ProductDetails from "../Pages/ProductDetails/ProductDetails";
 import Blog from "../Pages/Blog/Blog";
 import AboutUs from "../AboutUs/AboutUs";
+import DashBoardLayout from "../Layouts/DashBoardLayout";
 
 const router = createBrowserRouter([
     {
@@ -43,5 +44,14 @@ const router = createBrowserRouter([
         }
       ]
     },
+    {
+      path:'dashboard',
+      element:<DashBoardLayout></DashBoardLayout>,
+      children:[
+        {
+          
+        }
+      ]
+    }
   ]);
   export default router;

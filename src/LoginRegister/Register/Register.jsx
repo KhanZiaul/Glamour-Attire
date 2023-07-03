@@ -20,14 +20,12 @@ const Register = () => {
             .then((userCredential) => {
                 const user = userCredential.user;
                 console.log(user)
-
                 if (user && user?.email) {
                     axios.post(`http://localhost:3000/user/${user?.email}`, { name: data.name, email: data.email, image: data.URL, role: "customer" })
                         .then(data => {
                             console.log(data.data)
                         })
                 }
-
                 updateProfile(userCredential.user, {
                     displayName: data.name, photoURL: data.URL
                 }).then(() => {

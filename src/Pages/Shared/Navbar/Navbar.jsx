@@ -41,6 +41,14 @@ const Navbar = () => {
                             SHOP
                         </NavLink>
                         <NavLink
+                            to="/dashboard"
+                            className={({ isActive }) =>
+                                isActive ? "active" : ""
+                            }
+                        >
+                            DASHBOARD
+                        </NavLink>
+                        <NavLink
                             to="/blog"
                             className={({ isActive }) =>
                                 isActive ? "active" : ""
