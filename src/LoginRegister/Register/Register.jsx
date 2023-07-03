@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form"
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import { updateProfile } from "firebase/auth";
+import axios from "axios";
 
 const Register = () => {
 
@@ -19,6 +20,14 @@ const Register = () => {
             .then((userCredential) => {
                 const user = userCredential.user;
                 console.log(user)
+
+                if (user && user?.email) {
+                    axios.post(`http://localhost:3000/user/${user?.email}`, { name: data.name, email: data.email, image: data.URL, role: "customer" })
+                        .then(data => {
+                            console.log(data.data)
+                        })
+                }
+
                 updateProfile(userCredential.user, {
                     displayName: data.name, photoURL: data.URL
                 }).then(() => {
