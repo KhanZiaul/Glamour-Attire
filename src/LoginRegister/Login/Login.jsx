@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import { FaGoogle, FaGithub } from "react-icons/fa";
+import axios from "axios";
 
 const Login = () => {
 
@@ -39,6 +40,12 @@ const Login = () => {
             .then((result) => {
                 const user = result.user;
                 console.log(user)
+                if (user && user?.email) {
+                    axios.post(`http://localhost:3000/user/${user?.email}`, { name: user.displayName, email: user?.email, image: user.photoURL, role: "customer" })
+                        .then(data => {
+                            console.log(data.data)
+                        })
+                }
                 setLoginMessage('Successfully Login')
                 setColor(true)
             }).catch((error) => {
@@ -53,6 +60,12 @@ const Login = () => {
             .then((result) => {
                 const user = result.user;
                 console.log(user)
+                if (user && user?.email) {
+                    axios.post(`http://localhost:3000/user/${user?.email}`, { name: user.displayName, email: user?.email, image: user.photoURL, role: "customer" })
+                        .then(data => {
+                            console.log(data.data)
+                        })
+                }
                 setLoginMessage('Successfully Login')
                 setColor(true)
             }).catch((error) => {
