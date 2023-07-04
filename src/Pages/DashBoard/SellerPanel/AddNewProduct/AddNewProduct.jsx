@@ -1,9 +1,13 @@
 import { useContext } from "react";
 import { AuthContext } from "../../../../Provider/AuthProvider/AuthProvider";
+import useAxiosSecure from "../../../../CustomHook/useAxiosSecure/useAxiosSecure";
+import Swal from "sweetalert2";
 
+const img_key = import.meta.env.VITE_IMAG_KEY
 
 const AddNewProduct = () => {
     const { user } = useContext(AuthContext)
+    const [axiosSecure] = useAxiosSecure()
 
     function formHandler(event) {
 
@@ -19,19 +23,55 @@ const AddNewProduct = () => {
         const productName = event.target.productName.value;
         const productDetails = event.target.productDetails.value;
 
-        const newProduct = {
-            sellerName,
-            sellerEmail,
-            brand,
-            ratings,
-            price,
-            img,
-            type,
-            productName,
-            productDetails
-        }
+        // const newProduct = {
+        //     sellerName,
+        //     sellerEmail,
+        //     brand,
+        //     ratings,
+        //     price,
+        //     img,
+        //     type,
+        //     productName,
+        //     productDetails
+        // }
 
-        console.log(newProduct)
+        const formData = new FormData();
+        formData.append('image', img);
+
+        fetch(`https://api.imgbb.com/1/upload?key=${img_key}`, {
+            method: 'POST',
+            body: formData
+        }).then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    console.log(data)
+                    const image = data.data.display_url
+                    const newProduct = {
+                        sellerName,
+                        sellerEmail,
+                        brand,
+                        ratings,
+                        price,
+                        img:image,
+                        type,
+                        productName,
+                        productDetails
+                    }
+
+                    axiosSecure.post('/addNewProduct', newProduct)
+                        .then(data => {
+                            console.log(data.data)
+                            Swal.fire(
+                                'Successfull!',
+                                'Your added class successfully',
+                                'success'
+                            )
+                        })
+
+                    console.log(newProduct)
+                }
+            })
+
         event.target.reset()
     }
 
