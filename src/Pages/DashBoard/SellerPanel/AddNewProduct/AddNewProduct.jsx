@@ -50,7 +50,7 @@ const AddNewProduct = () => {
                         brand,
                         ratings,
                         price,
-                        img:image,
+                        img: image,
                         type,
                         productName,
                         productDetails
@@ -59,11 +59,13 @@ const AddNewProduct = () => {
                     axiosSecure.post('/addNewProduct', newProduct)
                         .then(data => {
                             console.log(data.data)
-                            Swal.fire(
-                                'Successfull!',
-                                'You added new product successfully',
-                                'success'
-                            )
+                            if (data.data.acknowledged === true) {
+                                Swal.fire(
+                                    'Successfull!',
+                                    'You added new product successfully',
+                                    'success'
+                                )
+                            }
                         })
 
                     console.log(newProduct)

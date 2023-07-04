@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../CustomHook/useAxiosSecure/useAxiosSecure";
 import { AuthContext } from "../../../../Provider/AuthProvider/AuthProvider";
 import { useParams } from "react-router-dom";
-import useUpdateProduct from "../../../../CustomHook/useUpdateProduct/useUpdateProduct";
+import useProducts from "../../../../CustomHook/useProducts/useProducts";
 
 const img_key = import.meta.env.VITE_IMAG_KEY
 
@@ -11,10 +11,8 @@ const UpdateProduct = () => {
     const { user } = useContext(AuthContext)
     const [axiosSecure] = useAxiosSecure()
     const { id } = useParams()
-    console.log(id)
-    const [updateProduct] = useUpdateProduct()
-    const matchProduct = updateProduct?.filter(product => product._id === id)
-    console.log(matchProduct)
+    const [allProducts] = useProducts()
+    const matchProduct = allProducts?.filter(product => product._id === id)
 
     function formHandler(event) {
 
@@ -55,11 +53,13 @@ const UpdateProduct = () => {
                     axiosSecure.patch(`/updateProduct/${id}`, updateProduct)
                         .then(data => {
                             console.log(data.data)
-                            Swal.fire(
-                                'Successfull!',
-                                'You updated product successfully',
-                                'success'
-                            )
+                            if (data.data.modifiedCount > 0) {
+                                Swal.fire(
+                                    'Successfull!',
+                                    'You updated product successfully',
+                                    'success'
+                                )
+                            }
                         })
 
                     console.log(updateProduct)
@@ -97,13 +97,13 @@ const UpdateProduct = () => {
                                 <label className="label">
                                     <span className="label-text">Brand</span>
                                 </label>
-                                <input name='brand' type="text" placeholder="Brand Name" className="input input-bordered" required />
+                                <input defaultValue={matchProduct[0]?.brand} name='brand' type="text" placeholder="Brand Name" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Ratings</span>
                                 </label>
-                                <input name='ratings' type="text" placeholder="Ratings" className="input input-bordered" required />
+                                <input defaultValue={matchProduct[0]?.ratings} name='ratings' type="text" placeholder="Ratings" className="input input-bordered" required />
                             </div>
                         </div>
                         <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
@@ -111,7 +111,7 @@ const UpdateProduct = () => {
                                 <label className="label">
                                     <span className="label-text">Price</span>
                                 </label>
-                                <input name='price' type="text" placeholder="Price" className="input input-bordered" required />
+                                <input defaultValue={matchProduct[0]?.price} name='price' type="text" placeholder="Price" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -127,7 +127,7 @@ const UpdateProduct = () => {
                                 <label className="label">
                                     <span className="label-text">Product Type New / Featured</span>
                                 </label>
-                                <select name="type" className="select select-bordered w-full max-w-xs">
+                                <select defaultValue={matchProduct[0]?.type} name="type" className="select select-bordered w-full max-w-xs">
                                     <option disabled selected>Product Type</option>
                                     <option>n</option>
                                     <option>f</option>
@@ -137,7 +137,7 @@ const UpdateProduct = () => {
                                 <label className="label">
                                     <span className="label-text">Product Name</span>
                                 </label>
-                                <input name='productName' type="text" placeholder="Product Name" className="input input-bordered" required />
+                                <input defaultValue={matchProduct[0]?.productName} name='productName' type="text" placeholder="Product Name" className="input input-bordered" required />
                             </div>
                         </div>
 
@@ -147,7 +147,7 @@ const UpdateProduct = () => {
                                 <label className="label">
                                     <span className="label-text">Product Details</span>
                                 </label>
-                                <textarea name='productDetails' placeholder="Product Details" className="textarea textarea-bordered textarea-lg w-full max-w-xs" ></textarea>
+                                <textarea defaultValue={matchProduct[0]?.productDetails} name='productDetails' placeholder="Product Details" className="textarea textarea-bordered textarea-lg w-full max-w-xs" ></textarea>
                             </div>
                         </div>
 

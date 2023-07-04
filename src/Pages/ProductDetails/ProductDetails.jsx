@@ -18,7 +18,7 @@ const ProductDetails = () => {
     return (
         <div className="pt-24 flex flex-col lg:flex-row items-center gap-10 mb-10 w-[95%] mx-auto">
             <div>
-                <img className="rounded-xl" src={data?.img} alt="" />
+                <img className="rounded-xl w-full lg:w-[1000px] lg:h-[400px]" src={data?.img} alt="" />
             </div>
             <div className="space-y-4">
                 <p className="font-bold">Home / {data?.brand}</p>
