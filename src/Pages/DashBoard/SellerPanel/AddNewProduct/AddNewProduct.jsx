@@ -26,32 +26,34 @@ const AddNewProduct = () => {
                 <form onSubmit={formHandler} className="card flex-shrink-0 w-full  shadow-2xl bg-base-100">
                     <div className="card-body">
 
+
                         <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Class Image</span>
-                                </label>
-                                <input name='img' type="file" className="input input-bordered" required />
-                            </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Seller Name</span>
                                 </label>
-                                <input value={user?.displayName ? user?.displayName : ''} name='instructorName' type="text" placeholder="Instructor name" className="input input-bordered" required readOnly />
+                                <input value={user?.displayName ? user?.displayName : ''} name='sellerName' type="text" placeholder="Seller Name" className="input input-bordered" required readOnly />
                             </div>
-                        </div>
-                        <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Seller Email</span>
                                 </label>
-                                <input value={user?.email} name='instructorEmail' type="email" placeholder="Instructor email" className="input input-bordered" required readOnly/>
+                                <input value={user?.email} name='sellerEmail' type="email" placeholder="Seller Email" className="input input-bordered" required readOnly />
+                            </div>
+                        </div>
+
+                        <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Brand</span>
+                                </label>
+                                <input name='brand' type="text" placeholder="Brand Name" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Product Name</span>
+                                    <span className="label-text">Ratings</span>
                                 </label>
-                                <input name='classname' type="text" placeholder="Class name" className="input input-bordered" required />
+                                <input name='ratings' type="text" placeholder="Ratings" className="input input-bordered" required />
                             </div>
                         </div>
                         <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
@@ -59,13 +61,43 @@ const AddNewProduct = () => {
                                 <label className="label">
                                     <span className="label-text">Price</span>
                                 </label>
-                                <input name='price' type="text" placeholder="price" className="input input-bordered" required />
+                                <input name='price' type="text" placeholder="Price" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Available</span>
+                                    <span className="label-text">Product Image</span>
                                 </label>
-                                <input name='availableSeats' type="text" placeholder="Available seats" className="input input-bordered" required />
+                                <input name='img' type="file" className="input input-bordered" required />
+                            </div>
+
+                        </div>
+
+                        <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Product Type New / Featured</span>
+                                </label>
+                                <select className="select select-bordered w-full max-w-xs">
+                                    <option disabled selected>Product Type</option>
+                                    <option>n</option>
+                                    <option>f</option>
+                                </select>
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Product Name</span>
+                                </label>
+                                <input name='classname' type="text" placeholder="Product Name" className="input input-bordered" required />
+                            </div>
+                        </div>
+
+
+                        <div className='grid grid-cols-1 mt-4'>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Product Details</span>
+                                </label>
+                                <textarea name='classname' placeholder="Product Details" className="textarea textarea-bordered textarea-lg w-full max-w-xs" ></textarea>
                             </div>
                         </div>
 
