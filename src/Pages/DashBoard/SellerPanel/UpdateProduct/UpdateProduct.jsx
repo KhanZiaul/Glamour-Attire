@@ -1,13 +1,20 @@
 import { useContext } from "react";
-import { AuthContext } from "../../../../Provider/AuthProvider/AuthProvider";
-import useAxiosSecure from "../../../../CustomHook/useAxiosSecure/useAxiosSecure";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../../CustomHook/useAxiosSecure/useAxiosSecure";
+import { AuthContext } from "../../../../Provider/AuthProvider/AuthProvider";
+import { useParams } from "react-router-dom";
+import useUpdateProduct from "../../../../CustomHook/useUpdateProduct/useUpdateProduct";
 
 const img_key = import.meta.env.VITE_IMAG_KEY
 
-const AddNewProduct = () => {
+const UpdateProduct = () => {
     const { user } = useContext(AuthContext)
     const [axiosSecure] = useAxiosSecure()
+    const { id } = useParams()
+    console.log(id)
+    const [updateProduct] = useUpdateProduct()
+    const matchProduct = updateProduct?.filter(product => product._id === id)
+    console.log(matchProduct)
 
     function formHandler(event) {
 
@@ -22,17 +29,6 @@ const AddNewProduct = () => {
         const type = event.target.type.value;
         const productName = event.target.productName.value;
         const productDetails = event.target.productDetails.value;
-        // const newProduct = {
-        //     sellerName,
-        //     sellerEmail,
-        //     brand,
-        //     ratings,
-        //     price,
-        //     img,
-        //     type,
-        //     productName,
-        //     productDetails
-        // }
         const formData = new FormData();
         formData.append('image', img);
 
@@ -44,29 +40,29 @@ const AddNewProduct = () => {
                 if (data.success) {
                     console.log(data)
                     const image = data.data.display_url
-                    const newProduct = {
+                    const updateProduct = {
                         sellerName,
                         sellerEmail,
                         brand,
                         ratings,
                         price,
-                        img:image,
+                        img: image,
                         type,
                         productName,
                         productDetails
                     }
 
-                    axiosSecure.post('/addNewProduct', newProduct)
+                    axiosSecure.patch(`/updateProduct/${id}`, updateProduct)
                         .then(data => {
                             console.log(data.data)
                             Swal.fire(
                                 'Successfull!',
-                                'You added new product successfully',
+                                'You updated product successfully',
                                 'success'
                             )
                         })
 
-                    console.log(newProduct)
+                    console.log(updateProduct)
                 }
             })
 
@@ -165,4 +161,4 @@ const AddNewProduct = () => {
     );
 };
 
-export default AddNewProduct;
+export default UpdateProduct;

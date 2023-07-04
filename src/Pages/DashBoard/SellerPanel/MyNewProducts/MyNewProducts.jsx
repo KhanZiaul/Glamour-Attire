@@ -2,6 +2,7 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../CustomHook/useAxiosSecure/useAxiosSecure";
 import useNewProducts from "../../../../CustomHook/useNewProducts/useNewProducts";
 import { BsFillTrashFill } from 'react-icons/bs'
+import { Link } from "react-router-dom";
 
 const MyNewProducts = () => {
     const [axiosSecure] = useAxiosSecure()
@@ -72,7 +73,7 @@ const MyNewProducts = () => {
                                         <td className="font-semibold">{myProduct.feedback ? myProduct.feedback : 'No Feedback'}
                                         </td>
                                         <td>
-                                            <button className="btn btn-outline btn-success btn-xs" >Update</button>
+                                            <Link to={`/dashboard/updateProduct/${myProduct._id}`}><button className="btn btn-outline btn-success btn-xs" >Update</button></Link>
                                         </td>
                                         <td>
                                             <BsFillTrashFill onClick={() => removeProduct(myProduct._id)} className="w-6 h-6 cursor-pointer text-[#FF6464]"></BsFillTrashFill>

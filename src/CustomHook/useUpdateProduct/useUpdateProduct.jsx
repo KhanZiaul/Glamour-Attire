@@ -3,18 +3,18 @@ import useAxiosSecure from "../useAxiosSecure/useAxiosSecure";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 
-function useAddedProducts(){
+function useUpdateProduct(){
     const [axiosSecure] = useAxiosSecure()
     const {loading} = useContext(AuthContext)
-    const { data : addedProducts = [] , refetch} = useQuery({
-        queryKey:['addedProducts'],
+    const { data : updateProduct = [] , refetch} = useQuery({
+        queryKey:['updateProductBySeller'],
         enabled:!loading,
         queryFn:async()=>{
-            const res = await axiosSecure.get('/addedProducts')
+            const res = await axiosSecure.get('/products')
             return res.data
         }
     })
     
-    return [addedProducts,refetch]
+    return [updateProduct,refetch]
 }
-export default useAddedProducts;
+export default useUpdateProduct;
