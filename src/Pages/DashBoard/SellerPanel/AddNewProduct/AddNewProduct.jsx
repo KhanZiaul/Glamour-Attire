@@ -9,13 +9,29 @@ const AddNewProduct = () => {
 
         event.preventDefault()
 
-        const productImage = event.target.img.files[0]
-        const sellerName = event.target.instructorName.value;
-        const email = event.target.instructorEmail.value;
-        const name = event.target.classname.value;
+        const sellerName = event.target.sellerName.value;
+        const sellerEmail = event.target.sellerEmail.value;
+        const brand = event.target.brand.value;
+        const ratings = event.target.ratings.value;
         const price = event.target.price.value;
-        const available = event.target.availableSeats.value;
+        const img = event.target.img.files[0]
+        const type = event.target.type.value;
+        const productName = event.target.productName.value;
+        const productDetails = event.target.productDetails.value;
 
+        const newProduct = {
+            sellerName,
+            sellerEmail,
+            brand,
+            ratings,
+            price,
+            img,
+            type,
+            productName,
+            productDetails
+        }
+
+        console.log(newProduct)
         event.target.reset()
     }
 
@@ -77,7 +93,7 @@ const AddNewProduct = () => {
                                 <label className="label">
                                     <span className="label-text">Product Type New / Featured</span>
                                 </label>
-                                <select className="select select-bordered w-full max-w-xs">
+                                <select name="type" className="select select-bordered w-full max-w-xs">
                                     <option disabled selected>Product Type</option>
                                     <option>n</option>
                                     <option>f</option>
@@ -87,7 +103,7 @@ const AddNewProduct = () => {
                                 <label className="label">
                                     <span className="label-text">Product Name</span>
                                 </label>
-                                <input name='classname' type="text" placeholder="Product Name" className="input input-bordered" required />
+                                <input name='productName' type="text" placeholder="Product Name" className="input input-bordered" required />
                             </div>
                         </div>
 
@@ -97,7 +113,7 @@ const AddNewProduct = () => {
                                 <label className="label">
                                     <span className="label-text">Product Details</span>
                                 </label>
-                                <textarea name='classname' placeholder="Product Details" className="textarea textarea-bordered textarea-lg w-full max-w-xs" ></textarea>
+                                <textarea name='productDetails' placeholder="Product Details" className="textarea textarea-bordered textarea-lg w-full max-w-xs" ></textarea>
                             </div>
                         </div>
 
