@@ -22,7 +22,6 @@ const AddNewProduct = () => {
         const type = event.target.type.value;
         const productName = event.target.productName.value;
         const productDetails = event.target.productDetails.value;
-
         // const newProduct = {
         //     sellerName,
         //     sellerEmail,
@@ -34,7 +33,6 @@ const AddNewProduct = () => {
         //     productName,
         //     productDetails
         // }
-
         const formData = new FormData();
         formData.append('image', img);
 

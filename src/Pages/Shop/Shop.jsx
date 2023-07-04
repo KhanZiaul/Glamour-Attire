@@ -14,6 +14,7 @@ const Shop = () => {
                 setProducts(datas)
             })
     }, [])
+    
     return (
         <div className="pt-16 mb-16">
             <div className="hero h-[300px] mb-10" style={{ backgroundImage: `url(${bgImage})` }}>
