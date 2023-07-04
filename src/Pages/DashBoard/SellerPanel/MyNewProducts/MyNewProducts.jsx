@@ -1,9 +1,39 @@
+import Swal from "sweetalert2";
+import useAxiosSecure from "../../../../CustomHook/useAxiosSecure/useAxiosSecure";
 import useNewProducts from "../../../../CustomHook/useNewProducts/useNewProducts";
 import { BsFillTrashFill } from 'react-icons/bs'
 
 const MyNewProducts = () => {
+    const [axiosSecure] = useAxiosSecure()
     const [newProducts, refetch] = useNewProducts()
-    console.log(newProducts)
+    function removeProduct(id) {
+        console.log(id)
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.delete(`/deleteProduct/${id}`)
+                    .then(data => {
+                        if (data.data.deletedCount > 0) {
+                            refetch()
+                            Swal.fire(
+                                'Deleted!',
+                                'User has been deleted.',
+                                'success'
+                            )
+                        }
+                        refetch()
+                        console.log(data.data)
+                    })
+            }
+        })
+    }
 
     return (
         <div>
@@ -45,7 +75,7 @@ const MyNewProducts = () => {
                                             <button className="btn btn-outline btn-success btn-xs" >Update</button>
                                         </td>
                                         <td>
-                                            <BsFillTrashFill className="w-6 h-6 cursor-pointer text-[#FF6464]"></BsFillTrashFill>
+                                            <BsFillTrashFill onClick={() => removeProduct(myProduct._id)} className="w-6 h-6 cursor-pointer text-[#FF6464]"></BsFillTrashFill>
                                         </td>
                                     </tr>
                                 )
