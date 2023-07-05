@@ -15,6 +15,7 @@ import UpdateProduct from "../Pages/DashBoard/SellerPanel/UpdateProduct/UpdatePr
 import Welcome from "../Pages/DashBoard/Welcome/Welcome";
 import ManageProducts from "../Pages/DashBoard/AdminPanel/ManageProducts/ManageProducts";
 import Feedback from "../Pages/DashBoard/AdminPanel/Feedback/Feedback";
+import MySelectedProducts from "../Pages/DashBoard/Customer/MySelectedProducts/MySelectedProducts";
 
 const router = createBrowserRouter([
     {
@@ -82,6 +83,10 @@ const router = createBrowserRouter([
         {
           path:'feedback/:id',
           element:<Feedback></Feedback>
+        },
+        {
+          path:'selectedProducts',
+          element:<MySelectedProducts></MySelectedProducts>
         }
       ]
     }

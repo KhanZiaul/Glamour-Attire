@@ -42,7 +42,7 @@ const MySelectedProducts = () => {
                 <table className="table bg-white">
                     {/* head */}
                     <thead>
-                        <tr className="uppercase">
+                        <tr className="uppercase bg-[#1B6B93] text-white">
                             <th>#</th>
                             <th>language</th>
                             <th>Instructor Name</th>

@@ -30,7 +30,7 @@ const DashboardLayout = () => {
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-                    <ul className="menu py-8 px-5 w-80 h-full bg-[#1B6B93] gap-4 font-semibold text-white">
+                    <ul className="menu py-8 px-5 w-80 h-full bg-[#1B6B93] gap-3 font-semibold text-white">
                         {/* Sidebar content here */}
                         <img className="h-[60px] w-[60px] mx-auto rounded-full border-4 border-green-900" src={user?.photoURL} alt="" />
                         <p className="text-center">{user?.displayName}</p>
@@ -83,10 +83,10 @@ const DashboardLayout = () => {
                                 <>
                                     <li>
                                         <NavLink
-                                            to="/dashboard/customerSelectedProducts"
+                                            to="/dashboard/selectedProducts"
                                             className={({ isActive }) => (isActive ? "active" : "")}
                                         >
-                                            <BiSelectMultiple className="w-5 h-5 text-white"></BiSelectMultiple>  MY SELECTED PRODUCTS
+                                            <BiSelectMultiple className="w-5 h-5 text-[rgb(0,249,245)]"></BiSelectMultiple>  MY SELECTED PRODUCTS
                                         </NavLink>
                                     </li>
                                     <li>
@@ -94,7 +94,7 @@ const DashboardLayout = () => {
                                             to="/dashboard/enrolledClasses"
                                             className={({ isActive }) => (isActive ? "active" : "")}
                                         >
-                                            <MdPayment className="w-5 h-5 text-white"></MdPayment> MY ORDERED PRODUCTS
+                                            <MdPayment className="w-5 h-5 text-[#f8bb14]"></MdPayment> MY ORDERED PRODUCTS
                                         </NavLink>
                                     </li>
                                     <li>
@@ -102,13 +102,13 @@ const DashboardLayout = () => {
                                             to="/dashboard/paymentHistory"
                                             className={({ isActive }) => (isActive ? "active" : "")}
                                         >
-                                            <SiAmazonpay className="w-5 h-5 text-white"></SiAmazonpay> MY PAYMENT HISTORY
+                                            <SiAmazonpay className="w-5 h-5 text-[#dffd00]"></SiAmazonpay> MY PAYMENT HISTORY
                                         </NavLink>
                                     </li>
                                 </>
                             )
                         }
-                        <hr className="border-[#3F2305] "/>
+                        <hr />
 
                         <li>
                             <NavLink
