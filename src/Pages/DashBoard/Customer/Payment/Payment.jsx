@@ -1,8 +1,15 @@
+import { Elements } from "@stripe/react-stripe-js";
+import CheckoutForm from "../CheckoutForm/CheckoutForm";
+import { loadStripe } from "@stripe/stripe-js";
+
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_KEY);
 
 const Payment = () => {
     return (
         <div>
-          <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores cupiditate non recusandae facilis magnam, eveniet odio excepturi itaque quasi molestiae provident alias, veritatis quisquam nulla esse dolorum dolore omnis necessitatibus.</h2>  
+            <Elements stripe={stripePromise}>
+                <CheckoutForm></CheckoutForm>
+            </Elements>
         </div>
     );
 };

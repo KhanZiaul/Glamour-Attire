@@ -104,10 +104,10 @@ const Navbar = () => {
                                                     <FaUser title={user.displayName} className=' bg-slate-400 w-12 h-12 rounded-full cursor-pointer p-2' />
                                             }
                                         </div>
-                                        <button onClick={logOutHandler} className="px-5 py-2 rounded-md bg-sky-700 text-white font-semibold">Log out</button>
+                                        <button onClick={logOutHandler} className="rounded-md bg-sky-700 text-white font-semibold">Log out</button>
                                     </div>
                                     :
-                                    <Link to='/login'><button className="px-5 py-2 rounded-md bg-sky-700 text-white font-semibold">Login</button></Link>
+                                    <Link to='/login'><button className="rounded-md bg-sky-700 text-white font-semibold">Login</button></Link>
                             }
                         </label>
                         {/* <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">

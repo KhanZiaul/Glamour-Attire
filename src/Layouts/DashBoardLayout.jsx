@@ -13,7 +13,7 @@ import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 
 const DashboardLayout = () => {
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
     const [isAdmin] = useAdmin()
     const [isSeller] = useSeller()
 
@@ -30,11 +30,13 @@ const DashboardLayout = () => {
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-                    <ul className="menu py-8 px-5 w-80 h-full bg-[#1B6B93] gap-3 font-semibold text-white">
+                    <ul className="menu px-4 w-full h-full bg-[#1B6B93] gap-2 text-white">
                         {/* Sidebar content here */}
-                        <img className="h-[60px] w-[60px] mx-auto rounded-full border-4 border-green-900" src={user?.photoURL} alt="" />
-                        <p className="text-center">{user?.displayName}</p>
-                        <p className="text-center">{user?.email}</p>
+                        <div className="space-y-2 border-[1px] shadow-2xl rounded-md p-3 bg-[#222222]">
+                            <img className="h-[60px] w-[60px] mx-auto rounded-full border-4 border-green-900 mt-4" src={user?.photoURL} alt="" />
+                            <p className="text-center">{user?.displayName}</p>
+                            <p className="text-center">{user?.email}</p>
+                        </div>
                         {
                             isAdmin && (
                                 <>
