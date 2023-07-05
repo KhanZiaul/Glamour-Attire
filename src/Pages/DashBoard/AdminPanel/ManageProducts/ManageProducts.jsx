@@ -20,7 +20,7 @@ const ManageProducts = () => {
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
-                        title: 'You Approved Successfully',
+                        title: 'you approved new product successfully',
                         showConfirmButton: false,
                         timer: 1500
                     })
@@ -38,7 +38,7 @@ const ManageProducts = () => {
                     Swal.fire({
                         position: 'top-end',
                         icon: 'warning',
-                        title: 'You Deny It',
+                        title: 'you deny new product',
                         showConfirmButton: false,
                         timer: 1500
                     })

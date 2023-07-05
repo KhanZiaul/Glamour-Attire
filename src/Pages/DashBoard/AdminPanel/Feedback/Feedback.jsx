@@ -19,7 +19,7 @@ const Feedback = () => {
     function feedbackHandler(e) {
         e.preventDefault()
         const feedback = e.target.feedback.value
-        axiosSecure.patch(`/feedbackProduct/${id}`, { feedback: feedback , fb:"true"})
+        axiosSecure.patch(`/feedbackProduct/${id}`, { feedback: feedback})
             .then(data => {
                 console.log(data.data)
                 if (data.data.modifiedCount > 0) {

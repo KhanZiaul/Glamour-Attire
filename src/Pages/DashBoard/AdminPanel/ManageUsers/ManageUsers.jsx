@@ -101,10 +101,10 @@ const ManageUsers = () => {
                                         <td className="font-bold">{allUser.role}</td>
                                         <td>
                                             <button onClick={() => makeSeller(allUser._id)}
-                                             className="btn btn-outline btn-info btn-xs" disabled={allUser.updatedRole === "true"}>Seller</button>
+                                             className="btn btn-outline btn-info btn-xs" disabled={allUser.updatedRole === "true"}>Make Seller</button>
                                         </td>
                                         <td>
-                                            <button onClick={()=>makeAdmin(allUser._id)} disabled={allUser.updatedRole === "true"} className="btn btn-outline btn-success btn-xs" >Admin</button>
+                                            <button onClick={()=>makeAdmin(allUser._id)} disabled={allUser.updatedRole === "true"} className="btn btn-outline btn-success btn-xs" >Make Admin</button>
                                         </td>
                                         <td>
                                             <BsFillTrashFill onClick={() => removeUser(allUser._id)} className="w-6 h-6 cursor-pointer text-[#FF6464]"></BsFillTrashFill>
