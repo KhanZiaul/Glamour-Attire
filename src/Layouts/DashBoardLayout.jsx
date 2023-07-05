@@ -25,7 +25,7 @@ const DashboardLayout = () => {
                 <div className="drawer-content p-7 ">
                     {/* Page content here */}
                     <Outlet></Outlet>
-                    <label htmlFor="my-drawer-2" className="btn btn-error text-white drawer-button lg:hidden">Open drawer</label>
+                    <label htmlFor="my-drawer-2" className="btn btn-error text-white drawer-button lg:hidden mt-6 shadow-2xl">Open dashboard</label>
 
                 </div>
                 <div className="drawer-side">

@@ -64,7 +64,7 @@ const ManageProducts = () => {
                             <th>product name</th>
                             <th>Price</th>
                             <th>is approved ?</th>
-                            <th>Feedback</th>
+                            <th>Feedbacks</th>
                         </tr>
                     </thead>
                     <tbody>
