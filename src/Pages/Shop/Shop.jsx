@@ -11,10 +11,11 @@ const Shop = () => {
         fetch('http://localhost:3000/products')
             .then(res => res.json())
             .then(datas => {
-                setProducts(datas)
+                const approvedDatas = datas?.filter(data => data.isApproved === "approved")
+                setProducts(approvedDatas)
             })
     }, [])
-    
+
     return (
         <div className="pt-16 mb-16">
             <div className="hero h-[300px] mb-10" style={{ backgroundImage: `url(${bgImage})` }}>

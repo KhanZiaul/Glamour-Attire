@@ -10,7 +10,8 @@ const NewArrivals = () => {
         fetch('http://localhost:3000/products/new')
             .then(res => res.json())
             .then(datas => {
-                setnewProducts(datas)
+                const approvedDatas = datas?.filter(data => data.isApproved === "approved")
+                setnewProducts(approvedDatas)
             })
     }, [])
     return (

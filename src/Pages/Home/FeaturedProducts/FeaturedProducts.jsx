@@ -10,7 +10,8 @@ const FeaturedProducts = () => {
         fetch('http://localhost:3000/products/features')
             .then(res => res.json())
             .then(datas => {
-                setFeaturedProducts(datas)
+                const approvedDatas = datas?.filter(data => data.isApproved === "approved")
+                setFeaturedProducts(approvedDatas)
             })
     }, [])
     return (
