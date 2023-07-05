@@ -8,8 +8,6 @@ const Feedback = () => {
 
     const { id } = useParams()
     const [axiosSecure] = useAxiosSecure()
-    console.log(id)
-
     const { data } = useQuery({
         queryKey: ['product'],
         queryFn: async () => {
@@ -18,11 +16,10 @@ const Feedback = () => {
         }
     })
 
-
     function feedbackHandler(e) {
         e.preventDefault()
         const feedback = e.target.feedback.value
-        axiosSecure.patch(`/feedbackClass/${id}`, { feedback: feedback })
+        axiosSecure.patch(`/feedbackProduct/${id}`, { feedback: feedback , fb:"true"})
             .then(data => {
                 console.log(data.data)
                 if (data.data.modifiedCount > 0) {

@@ -1,21 +1,18 @@
-import { useContext } from "react";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import useProducts from "../../../../CustomHook/useProducts/useProducts";
 import useAxiosSecure from "../../../../CustomHook/useAxiosSecure/useAxiosSecure";
-import { AuthContext } from "../../../../Provider/AuthProvider/AuthProvider";
 
 
 const ManageProducts = () => {
 
     const [axiosSecure] = useAxiosSecure()
-    const { user, loading } = useContext(AuthContext)
     const [allProducts, refetch] = useProducts()
     const allNewProducts = allProducts?.filter(product => product?.isNew === "true")
     console.log(allNewProducts)
 
     function approvedHandler(id) {
-        axiosSecure.patch(`/approvedClass/${id}`, { status: 'approved' })
+        axiosSecure.patch(`/approvedProduct/${id}`, { isApproved: 'approved' })
             .then(data => {
                 console.log(data.data)
                 refetch()
@@ -33,7 +30,7 @@ const ManageProducts = () => {
 
 
     function denyHandler(id) {
-        axiosSecure.patch(`/denyClass/${id}`, { status: 'deny' })
+        axiosSecure.patch(`/denyProduct/${id}`, { isApproved: 'deny' })
             .then(data => {
                 console.log(data.data)
                 refetch()
@@ -92,7 +89,7 @@ const ManageProducts = () => {
                                             <button onClick={() => approvedHandler(newProduct._id)} className="btn btn-outline btn-success btn-xs mt-3" disabled={newProduct?.isApproved === "approved" || newProduct?.isApproved === "deny"}>Approve</button>
                                             <button onClick={() => denyHandler(newProduct._id)} className="btn btn-outline btn-error btn-xs" disabled={newProduct?.isApproved === "approved" || newProduct?.isApproved === "deny"}>Deny</button>
 
-                                            <Link to={`/dashboard/feedback/${newProduct._id}`}> <button className="btn btn-outline btn-info btn-xs mb-3 w-full">Feedback</button></Link>
+                                            <Link to={`/dashboard/feedback/${newProduct._id}`}> <button disabled={newProduct?.fb === "true"} className="btn btn-outline btn-info btn-xs mb-3 w-full">Feedback</button></Link>
 
                                         </div>
                                     </tr>
