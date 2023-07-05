@@ -12,6 +12,8 @@ import ManageUsers from "../Pages/DashBoard/AdminPanel/ManageUsers/ManageUsers";
 import AddNewProduct from "../Pages/DashBoard/SellerPanel/AddNewProduct/AddNewProduct";
 import MyNewProducts from "../Pages/DashBoard/SellerPanel/MyNewProducts/MyNewProducts";
 import UpdateProduct from "../Pages/DashBoard/SellerPanel/UpdateProduct/UpdateProduct";
+import Welcome from "../Pages/DashBoard/Welcome/Welcome";
+import ManageProducts from "../Pages/DashBoard/AdminPanel/ManageProducts/ManageProducts";
 
 const router = createBrowserRouter([
     {
@@ -67,6 +69,14 @@ const router = createBrowserRouter([
         {
           path:'updateProduct/:id',
           element:<UpdateProduct></UpdateProduct>
+        },
+        {
+          path:'welcome',
+          element:<Welcome></Welcome>
+        },
+        {
+          path:'manageProducts',
+          element:<ManageProducts></ManageProducts>
         }
       ]
     }

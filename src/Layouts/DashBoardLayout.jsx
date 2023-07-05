@@ -9,9 +9,11 @@ import { FaUserSecret } from "react-icons/fa";
 import { FcAbout, FcBusinessContact, FcHome, FcShop } from "react-icons/fc";
 import useAdmin from "../CustomHook/useAdmin/useAdmin";
 import useSeller from "../CustomHook/useSeller/useSeller";
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 
 const DashboardLayout = () => {
-
+    const {user} = useContext(AuthContext)
     const [isAdmin] = useAdmin()
     const [isSeller] = useSeller()
 
@@ -30,6 +32,9 @@ const DashboardLayout = () => {
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     <ul className="menu py-8 px-5 w-80 h-full bg-[#1B6B93] gap-4 font-semibold text-white">
                         {/* Sidebar content here */}
+                        <img className="h-[60px] w-[60px] mx-auto rounded-full border-4 border-green-900" src={user?.photoURL} alt="" />
+                        <p className="text-center">{user?.displayName}</p>
+                        <p className="text-center">{user?.email}</p>
                         {
                             isAdmin && (
                                 <>
@@ -38,15 +43,15 @@ const DashboardLayout = () => {
                                             to="/dashboard/manageUsers"
                                             className={({ isActive }) => (isActive ? "active" : "")}
                                         >
-                                            <FaUserSecret className="w-5 h-5 text-white"></FaUserSecret>MANAGE USERS
+                                            <FaUserSecret className="w-5 h-5 text-[#79ec06]"></FaUserSecret>MANAGE USERS
                                         </NavLink>
                                     </li>
                                     <li>
                                         <NavLink
-                                            to="/dashboard/manageClasses"
+                                            to="/dashboard/manageProducts"
                                             className={({ isActive }) => (isActive ? "active" : "")}
                                         >
-                                            <MdManageAccounts className="w-5 h-5 text-white"></MdManageAccounts>MANAGE PRODUCTS
+                                            <MdManageAccounts className="w-6 h-6 text-[#0ceadb]"></MdManageAccounts>MANAGE PRODUCTS
                                         </NavLink>
                                     </li>
                                 </>
@@ -60,7 +65,7 @@ const DashboardLayout = () => {
                                             to="/dashboard/addNewProduct"
                                             className={({ isActive }) => (isActive ? "active" : "")}
                                         >
-                                            <MdPostAdd className="w-5 h-5 text-white"></MdPostAdd> ADD NEW PRODUCT
+                                            <MdPostAdd className="w-5 h-5 text-[#00ffdd]"></MdPostAdd> ADD NEW PRODUCT
                                         </NavLink>
                                     </li>
                                     <li>
@@ -68,7 +73,7 @@ const DashboardLayout = () => {
                                             to="/dashboard/myNewProducts"
                                             className={({ isActive }) => (isActive ? "active" : "")}
                                         >
-                                            <MdProductionQuantityLimits className="w-5 h-5 text-white"></MdProductionQuantityLimits>  MY NEW PRODUCTS
+                                            <MdProductionQuantityLimits className="w-5 h-5 text-[#00ff04]"></MdProductionQuantityLimits>  MY NEW PRODUCTS
                                         </NavLink>
                                     </li>
                                 </>
@@ -103,7 +108,7 @@ const DashboardLayout = () => {
                                 </>
                             )
                         }
-                        <hr />
+                        <hr className="border-[#3F2305] "/>
 
                         <li>
                             <NavLink
@@ -132,7 +137,7 @@ const DashboardLayout = () => {
                                     isActive ? "active" : ""
                                 }
                             >
-                                <FaBloggerB className="w-5 h-5 text-white"></FaBloggerB> BLOG
+                                <FaBloggerB className="w-5 h-5 text-[#d56e59]"></FaBloggerB> BLOG
                             </NavLink>
                         </li>
                         <li>
