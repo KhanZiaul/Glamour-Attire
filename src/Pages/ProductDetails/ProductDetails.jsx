@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import useAxiosSecure from "../../CustomHook/useAxiosSecure/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const ProductDetails = () => {
     const { id } = useParams()
@@ -40,6 +41,13 @@ const ProductDetails = () => {
         axiosSecure.post('/secetedProduct',selectedProduct)
         .then(data => {
             console.log(data.data)
+            if (data.data.acknowledged === true) {
+                Swal.fire(
+                    'Successfull!',
+                    'you selected product successfully',
+                    'success'
+                )
+            }
         })
 
     }

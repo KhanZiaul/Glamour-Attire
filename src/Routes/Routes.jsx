@@ -16,6 +16,7 @@ import Welcome from "../Pages/DashBoard/Welcome/Welcome";
 import ManageProducts from "../Pages/DashBoard/AdminPanel/ManageProducts/ManageProducts";
 import Feedback from "../Pages/DashBoard/AdminPanel/Feedback/Feedback";
 import MySelectedProducts from "../Pages/DashBoard/Customer/MySelectedProducts/MySelectedProducts";
+import Payment from "../Pages/DashBoard/Customer/Payment/Payment";
 
 const router = createBrowserRouter([
     {
@@ -87,6 +88,10 @@ const router = createBrowserRouter([
         {
           path:'selectedProducts',
           element:<MySelectedProducts></MySelectedProducts>
+        },
+        {
+          path:'payment/:id',
+          element:<Payment></Payment>
         }
       ]
     }

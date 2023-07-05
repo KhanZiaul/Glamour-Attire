@@ -4,18 +4,17 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 
 function useSelectedProducts(){
-
     const [axiosSecure] = useAxiosSecure()
-    const {loading} = useContext(AuthContext)
-    const {data: selectedProducts , refetch} = useQuery({
+    const {loading , user} = useContext(AuthContext)
+    const {data: customerSelectedProducts , refetch} = useQuery({
         queryKey:['selectedProducts'],
         enabled:!loading,
         queryFn:async()=>{
-            const res = await axiosSecure.get('/selectedProducts')
+            const res = await axiosSecure.get(`/secetedProduct/${user?.email}`)
             return res.data
         }
     })
-    return [selectedProducts ,refetch]
+    return [customerSelectedProducts ,refetch]
 }
 
 export default useSelectedProducts;
