@@ -1,40 +1,96 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import './ChexkoutForm.css'
+import { useContext, useEffect, useState } from "react";
+import useAxiosSecure from "../../../../CustomHook/useAxiosSecure/useAxiosSecure";
+import { AuthContext } from "../../../../Provider/AuthProvider/AuthProvider";
 
 const CheckoutForm = () => {
     const stripe = useStripe();
     const elements = useElements();
+    const [clientSecret, setClientSecret] = useState("");
+    const [axiosSecure] = useAxiosSecure()
+    const [processing, setProcessing] = useState(false);
+    const { user } = useContext(AuthContext)
+    const [getError, setError] = useState('')
+    const [transactionId, setTransactionId] = useState("");
+
+    useEffect(() => {
+
+        axiosSecure.post('/create-payment-intent', { price: 200 })
+            .then(data => {
+                console.log(data.data)
+                setClientSecret(data.data.clientSecret)
+            })
+
+    }, [axiosSecure]);
 
     const handleSubmit = async (event) => {
-        // Block native form submission.
         event.preventDefault();
 
         if (!stripe || !elements) {
-            // Stripe.js has not loaded yet. Make sure to disable
-            // form submission until Stripe.js has loaded.
             return;
         }
-
-        // Get a reference to a mounted CardElement. Elements knows how
-        // to find your CardElement because there can only ever be one of
-        // each type of element.
         const card = elements.getElement(CardElement);
 
         if (card == null) {
             return;
         }
-
-        // Use your card Element with other Stripe.js APIs
-        const { error, paymentMethod } = await stripe.createPaymentMethod({
+        const { error } = await stripe.createPaymentMethod({
             type: 'card',
             card,
         });
 
         if (error) {
-            console.log('[error]', error);
+            setError(error.message)
         } else {
-            console.log('[PaymentMethod]', paymentMethod);
+            setError('')
         }
+
+        setProcessing(true)
+
+        const { paymentIntent, conFirmError } = await stripe.confirmCardPayment(
+            clientSecret,
+            {
+                payment_method: {
+                    card: card,
+                    billing_details: {
+                        name: user ? user.displayName : 'anomyous',
+                        email: user ? user.email : 'unknown'
+                    },
+                },
+            },
+        );
+
+        if (conFirmError) {
+            console.log(conFirmError)
+        }
+
+        console.log(paymentIntent)
+
+        setProcessing(false)
+
+        if (paymentIntent.status == 'succeeded') {
+            setTransactionId(paymentIntent.id)
+            const date = new Date();
+            const options = { dateStyle: 'full', timeZone: 'UTC' };
+            const formattedDate = date.toLocaleDateString('en-US', options);
+            const timestamp = date.toISOString();
+
+            console.log(formattedDate,timestamp)
+            
+            //     axiosSecure.patch(`/payment/${_id}`, { payment: true, date: formattedDate, availableSeats: availableSeats, students: students, timestamp: timestamp, TransactionId: paymentIntent.id })
+            //         .then(data => {
+            //             console.log(data.data)
+            //         })
+
+            //     // refetch()
+
+            //     axiosSecure.patch(`/updateClass/${classId}`, { availableSeats: availableSeats, students: students })
+            //         .then(data => {
+            //             console.log(data.data)
+            //         })
+        }
+
     };
     return (
         <div>
@@ -55,9 +111,12 @@ const CheckoutForm = () => {
                         },
                     }}
                 />
-                <button type="submit" disabled={!stripe}>
+                <button className="btn-sm bg-sky-500" type="submit" disabled={!stripe || !clientSecret || processing}>
                     Pay
                 </button>
+
+                <p className="text-xl mt-3 text-red-600">{getError}</p>
+                <p className="text-xl mt-3 text-green-600">  {transactionId ? `Payment successfully done , transaction id - ${transactionId}` : ' '}</p>
             </form>
         </div>
     );
