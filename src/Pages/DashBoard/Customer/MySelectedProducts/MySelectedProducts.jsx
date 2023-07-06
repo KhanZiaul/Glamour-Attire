@@ -88,5 +88,3 @@ const MySelectedProducts = () => {
 };
 
 export default MySelectedProducts;
-
-// onClick={() => deleteClass(selectClass._id)}

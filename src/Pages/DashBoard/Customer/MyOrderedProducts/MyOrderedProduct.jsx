@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../../../Provider/AuthProvider/AuthProvider";
 
 
-const MyPaymentHistory = () => {
+const MyOrderedProduct = () => {
 
     const [axiosSecure] = useAxiosSecure()
     const { user, loading } = useContext(AuthContext)
@@ -17,8 +17,6 @@ const MyPaymentHistory = () => {
             return res.data
         }
     })
-
-    console.log(data)
 
     return (
         <div>
@@ -60,4 +58,4 @@ const MyPaymentHistory = () => {
     );
 };
 
-export default MyPaymentHistory;
+export default MyOrderedProduct;
