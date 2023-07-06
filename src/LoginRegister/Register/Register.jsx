@@ -7,7 +7,7 @@ import axios from "axios";
 
 const Register = () => {
 
-    const { createUser } = useContext(AuthContext)
+    const { createUser , logOut } = useContext(AuthContext)
     const [color, setColor] = useState(true)
     const navigate = useNavigate()
     const [registerMessage, setRegisterMessage] = useState('')
@@ -38,8 +38,11 @@ const Register = () => {
                 });
                 setRegisterMessage('Successfully Register')
                 setColor(true)
-                navigate('/home')
                 reset()
+                logOut().then(() => {
+                }).catch((error) => {
+                });
+                navigate('/')
             })
             .catch((error) => {
                 const errorMessage = error.message;

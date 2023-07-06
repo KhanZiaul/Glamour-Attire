@@ -14,6 +14,7 @@ const Login = () => {
     const googleProvider = new GoogleAuthProvider();
     const navigate = useNavigate()
     const location = useLocation()
+    const from = location?.state?.from?.pathname || '/'
     const githubProvider = new GithubAuthProvider();
     const {
         register, reset, handleSubmit,
@@ -28,6 +29,7 @@ const Login = () => {
                 console.log(user)
                 setLoginMessage('Successfully Login')
                 setColor(true)
+                navigate(from, { replace: true })
                 reset()
             })
             .catch((error) => {
