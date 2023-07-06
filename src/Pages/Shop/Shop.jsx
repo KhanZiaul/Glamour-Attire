@@ -17,7 +17,7 @@ const Shop = () => {
     }, [])
 
     return (
-        <div className="pt-16 mb-16">
+        <div className="pt-12 lg:pt-16 mb-16">
             <div className="hero h-[300px] mb-10" style={{ backgroundImage: `url(${bgImage})` }}>
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
