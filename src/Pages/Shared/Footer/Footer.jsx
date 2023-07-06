@@ -6,7 +6,7 @@ const Footer = () => {
             <footer>
                 <div className='flex flex-col justify-center items-center pt-6'>
                     <img src={logo} alt="logo" />
-                    <p className='my-3'>Glamour Attire providing reliable clothes since 2020</p>
+                    <p className='my-3 text-center'>Glamour Attire providing reliable clothes since 2020</p>
                 </div>
                 <div className="footer p-10 text-base-content">
                     <div>

@@ -3,16 +3,16 @@ import aboutUs from '../assets/img/about/a6.jpg'
 
 const AboutUs = () => {
     return (
-        <div className='pt-16 mb-10'>
+        <div className='pt-12 lg:pt-16 mb-10'>
             <div className="hero h-[300px] mb-8" style={{ backgroundImage: `url(${bgImage})` }}>
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-md">
-                        <h1 className="mb-5 text-5xl font-bold">#knowmoreaboutus</h1>
+                        <h1 className="mb-5 text-3xl lg:text-5xl font-bold">#knowmoreaboutus</h1>
                     </div>
                 </div>
             </div>
-            <div className='flex gap-10 items-center mx-6'>
+            <div className='flex flex-col lg:flex-row gap-10 items-center mx-6'>
                 <div>
                     <img className='w-[1000px] rounded-xl' src={aboutUs} alt="" />
                 </div>

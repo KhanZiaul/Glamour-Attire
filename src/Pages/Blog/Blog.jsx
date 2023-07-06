@@ -20,7 +20,7 @@ const Blog = () => {
         }
     ]
     return (
-        <div className="pt-16 mb-10">
+        <div className="pt-12 lg:pt-16 mb-10">
             <div className="hero h-[300px]" style={{ backgroundImage: `url(${bgImage})` }}>
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
@@ -35,11 +35,11 @@ const Blog = () => {
                     blogs.map((blog, index) => {
                         return (
                             <div key={index}>
-                                <div className='flex justify-center gap-10 mb-8 items-center'>
+                                <div className='flex flex-col lg:flex-row justify-center gap-10 mb-8 items-center'>
                                     <div>
                                         <img className='w-[350px] h-[350px]' src={blog.image} alt="" />
                                     </div>
-                                    <div className='w-[50%] space-y-4'>
+                                    <div className='w-[90%] lg:w-[50%] space-y-4'>
                                         <p className='text-2xl font-bold'>{blog.title}</p>
                                         <p className='text-justify'>{blog.blog.slice(0, 200)}...</p>
 

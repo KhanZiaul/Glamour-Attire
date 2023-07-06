@@ -28,21 +28,20 @@ const DashboardLayout = () => {
 
     return (
         <div>
-
             <div className="drawer lg:drawer-open">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content p-7 ">
+                <div className="drawer-content p-7">
                     {/* Page content here */}
                     <Outlet></Outlet>
-                    <label htmlFor="my-drawer-2" className="btn btn-error text-white drawer-button lg:hidden mt-6 shadow-2xl">Open dashboard</label>
+                    <label htmlFor="my-drawer-2" className="btn btn-error text-white drawer-button lg:hidden mt-6 shadow-2xl ms-12">Open dashboard</label>
 
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-                    <ul className="menu px-4 w-60 lg:w-full h-full bg-[rgb(36,36,68)] gap-2 text-white">
+                    <ul className="menu px-4 w-76 lg:w-full h-full bg-[rgb(36,36,68)] gap-2 text-white">
                         {/* Sidebar content here */}
-                        <img className="h-[60px] w-[60px] ms-4 rounded-full border-4 border-green-900 mt-4" src={user?.photoURL} alt="" />
-                        <p className="ms-4">{user?.displayName}</p>
+                        <img className="h-[60px] w-[60px] ms-20 lg:ms-auto lg:mx-auto rounded-full border-4 border-green-900 mt-4 mb-2" src={user?.photoURL} alt="" />
+                        <p className="ms-16 lg:ms-0 lg:text-center mb-4">{user?.displayName}</p>
 
                         {
                             isAdmin && (
@@ -95,7 +94,7 @@ const DashboardLayout = () => {
                                             to="/dashboard/selectedProducts"
                                             className={({ isActive }) => (isActive ? "active" : "")}
                                         >
-                                            <BiSelectMultiple className="w-5 h-5 text-[rgb(0,249,245)]"></BiSelectMultiple>  MY SELECTED PRODUCTS
+                                            <BiSelectMultiple className="w-5 h-5 text-[rgb(0,249,245)]"></BiSelectMultiple>MY SELECTED PRODUCTS
                                         </NavLink>
                                     </li>
                                     <li>
@@ -171,7 +170,7 @@ const DashboardLayout = () => {
                         </li>
 
                         <li>
-                            <div className="flex mt-8 font-bold gap-3">
+                            <div className="flex mt-4 font-bold gap-3">
                                 <BsBoxArrowInRight className="w-5 h-5 text-white"></BsBoxArrowInRight>
                                 <p onClick={logOutHandler}>LOGOUT</p>
                             </div>
