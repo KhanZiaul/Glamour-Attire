@@ -19,91 +19,94 @@ import MySelectedProducts from "../Pages/DashBoard/Customer/MySelectedProducts/M
 import Payment from "../Pages/DashBoard/Customer/Payment/Payment";
 import MyPaymentHistory from "../Pages/DashBoard/Customer/MyPaymentHistory/MyPaymentHistory";
 import MyOrderedProduct from "../Pages/DashBoard/Customer/MyOrderedProducts/MyOrderedProduct";
+import PrivateProvider from "../Provider/PrivateProvider/PrivateProvider";
+import AdminProvider from "../Provider/AdminProvider/AdminProvider";
+import SellerProvider from "../Provider/SellerProvider/SellerProvider";
 
 const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <MainLayout></MainLayout>,
-      children:[
-        {
-            path:'/',
-            element:<Home></Home>
-        },
-        {
-          path:'/shop',
-          element:<Shop></Shop>
-        },
-        {
-          path:'/productDetails/:id',
-          element:<ProductDetails></ProductDetails>
-        },
-        {
-          path:'/blog',
-          element:<Blog></Blog>
-        },
-        {
-          path:'/about',
-          element:<AboutUs></AboutUs>
-        },
-        {
-          path:'/login',
-          element:<Login></Login>
-        },
-        {
-          path:'/register',
-          element:<Register></Register>
-        }
-      ]
-    },
-    {
-      path:'dashboard',
-      element:<DashBoardLayout></DashBoardLayout>,
-      children:[
-        {
-          path:'manageUsers',
-          element:<ManageUsers></ManageUsers>
-        },
-        {
-          path:'addNewProduct',
-          element:<AddNewProduct></AddNewProduct>
-        },
-        {
-          path:'myNewProducts',
-          element:<MyNewProducts></MyNewProducts>
-        },
-        {
-          path:'updateProduct/:id',
-          element:<UpdateProduct></UpdateProduct>
-        },
-        {
-          path:'welcome',
-          element:<Welcome></Welcome>
-        },
-        {
-          path:'manageProducts',
-          element:<ManageProducts></ManageProducts>
-        },
-        {
-          path:'feedback/:id',
-          element:<Feedback></Feedback>
-        },
-        {
-          path:'selectedProducts',
-          element:<MySelectedProducts></MySelectedProducts>
-        },
-        {
-          path:'payment/:id',
-          element:<Payment></Payment>
-        },
-        {
-          path:'paymentHistory',
-          element:<MyPaymentHistory></MyPaymentHistory>
-        },
-        {
-          path:'myOrderedProduct',
-          element:<MyOrderedProduct></MyOrderedProduct>
-        }
-      ]
-    }
-  ]);
-  export default router;
+  {
+    path: "/",
+    element: <MainLayout></MainLayout>,
+    children: [
+      {
+        path: '/',
+        element: <Home></Home>
+      },
+      {
+        path: '/shop',
+        element: <Shop></Shop>
+      },
+      {
+        path: '/productDetails/:id',
+        element: <PrivateProvider><ProductDetails></ProductDetails></PrivateProvider>
+      },
+      {
+        path: '/blog',
+        element: <Blog></Blog>
+      },
+      {
+        path: '/about',
+        element: <AboutUs></AboutUs>
+      },
+      {
+        path: '/login',
+        element: <Login></Login>
+      },
+      {
+        path: '/register',
+        element: <Register></Register>
+      }
+    ]
+  },
+  {
+    path: 'dashboard',
+    element: <PrivateProvider><DashBoardLayout></DashBoardLayout></PrivateProvider>,
+    children: [
+      {
+        path: 'welcome',
+        element: <Welcome></Welcome>
+      },
+      {
+        path: 'manageUsers',
+        element: <AdminProvider><ManageUsers></ManageUsers></AdminProvider>
+      },
+      {
+        path: 'manageProducts',
+        element: <AdminProvider><ManageProducts></ManageProducts></AdminProvider>
+      },
+      {
+        path: 'feedback/:id',
+        element: <Feedback></Feedback>
+      },
+      {
+        path: 'addNewProduct',
+        element: <SellerProvider><AddNewProduct></AddNewProduct></SellerProvider>
+      },
+      {
+        path: 'myNewProducts',
+        element: <SellerProvider><MyNewProducts></MyNewProducts></SellerProvider>
+      },
+      {
+        path: 'updateProduct/:id',
+        element: <SellerProvider><UpdateProduct></UpdateProduct></SellerProvider>
+      },
+      {
+        path: 'selectedProducts',
+        element: <MySelectedProducts></MySelectedProducts>
+      },
+      {
+        path: 'payment/:id',
+        element: <Payment></Payment>
+      },
+      {
+        path: 'paymentHistory',
+        element: <MyPaymentHistory></MyPaymentHistory>
+      },
+      {
+        path: 'myOrderedProduct',
+        element: <MyOrderedProduct></MyOrderedProduct>
+      }
+    ]
+  }
+]);
+export default router;
