@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import useAxiosSecure from "../../../../CustomHook/useAxiosSecure/useAxiosSecure";
 import { AuthContext } from "../../../../Provider/AuthProvider/AuthProvider";
 import useSelectedProducts from "../../../../CustomHook/useSelectedProducts/useSelectedProducts";
+import Swal from "sweetalert2";
 
 const CheckoutForm = ({ id }) => {
     const stripe = useStripe();
@@ -20,7 +21,7 @@ const CheckoutForm = ({ id }) => {
 
     console.log(selectedProduct)
 
-    const { payment, price, productDetails, productId, productPiece, size, _id } = selectedProduct
+    const { price, productPiece, _id } = selectedProduct
 
     useEffect(() => {
         if (price > 0) {
@@ -31,7 +32,7 @@ const CheckoutForm = ({ id }) => {
                 })
         }
 
-    }, [axiosSecure , productPiece , price]);
+    }, [axiosSecure, productPiece, price]);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -87,12 +88,21 @@ const CheckoutForm = ({ id }) => {
 
             console.log(formattedDate, timestamp)
 
-                axiosSecure.patch(`/payment/${_id}`, { payment: "true", date: formattedDate, availableSeats: availableSeats, students: students, timestamp: timestamp, TransactionId: paymentIntent.id })
-                    .then(data => {
-                        console.log(data.data)
-                    })
+            axiosSecure.patch(`/payment/${_id}`, { payment: "true", date: formattedDate, timestamp: timestamp, TransactionId: paymentIntent.id })
+                .then(data => {
+                    console.log(data.data)
+                    if (data.data.matchedCount > 0) {
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'payment successfull',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    }
+                })
 
-                // refetch()
+            refetch()
 
             //     axiosSecure.patch(`/updateClass/${classId}`, { availableSeats: availableSeats, students: students })
             //         .then(data => {
