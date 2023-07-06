@@ -1,8 +1,9 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { MdManageAccounts } from "react-icons/md";
 import { MdPostAdd, MdPayment } from "react-icons/md";
 import { BiSelectMultiple } from "react-icons/bi";
 import { SiAmazonpay } from "react-icons/si";
+import { BsBoxArrowInRight } from "react-icons/bs";
 import { MdProductionQuantityLimits } from "react-icons/md";
 import { FaBloggerB } from "react-icons/fa";
 import { FaUserSecret } from "react-icons/fa";
@@ -13,9 +14,17 @@ import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 
 const DashboardLayout = () => {
-    const { user } = useContext(AuthContext)
     const [isAdmin] = useAdmin()
     const [isSeller] = useSeller()
+    const { user, logOut } = useContext(AuthContext)
+    const navigate = useNavigate()
+    function logOutHandler() {
+        logOut().then(() => {
+            navigate('/home')
+        }).catch((error) => {
+            console.log(error)
+        });
+    }
 
     return (
         <div>
@@ -30,13 +39,11 @@ const DashboardLayout = () => {
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-                    <ul className="menu px-4 w-full h-full bg-[#1B6B93] gap-2 text-white">
+                    <ul className="menu px-4 w-full h-full bg-[rgb(36,36,68)] gap-2 text-white">
                         {/* Sidebar content here */}
-                        <div className="space-y-2 border-[1px] shadow-2xl rounded-md p-3 bg-[#222222]">
-                            <img className="h-[60px] w-[60px] mx-auto rounded-full border-4 border-green-900 mt-4" src={user?.photoURL} alt="" />
-                            <p className="text-center">{user?.displayName}</p>
-                            <p className="text-center">{user?.email}</p>
-                        </div>
+                        <img className="h-[60px] w-[60px] mx-auto rounded-full border-4 border-green-900 mt-4" src={user?.photoURL} alt="" />
+                        <p className="text-center mb-4">{user?.displayName}</p>
+
                         {
                             isAdmin && (
                                 <>
@@ -93,7 +100,7 @@ const DashboardLayout = () => {
                                     </li>
                                     <li>
                                         <NavLink
-                                            to="/dashboard/enrolledClasses"
+                                            to="/dashboard/myOrderedProduct"
                                             className={({ isActive }) => (isActive ? "active" : "")}
                                         >
                                             <MdPayment className="w-5 h-5 text-[#f8bb14]"></MdPayment> MY ORDERED PRODUCTS
@@ -162,8 +169,16 @@ const DashboardLayout = () => {
                                 <FcBusinessContact className="w-5 h-5 text-white"></FcBusinessContact> CONTACT
                             </NavLink>
                         </li>
-                    </ul>
 
+                        <li>
+                            <div className="flex mt-8 font-bold gap-3">
+                                <BsBoxArrowInRight className="w-5 h-5 text-white"></BsBoxArrowInRight>
+                                <p onClick={logOutHandler}>LOGOUT</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div>
+                    </div>
                 </div>
             </div>
 

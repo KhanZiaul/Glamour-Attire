@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form"
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
@@ -9,6 +9,7 @@ const Register = () => {
 
     const { createUser } = useContext(AuthContext)
     const [color, setColor] = useState(true)
+    const navigate = useNavigate()
     const [registerMessage, setRegisterMessage] = useState('')
     const {
         register, formState: { errors }, reset, handleSubmit,
@@ -37,6 +38,7 @@ const Register = () => {
                 });
                 setRegisterMessage('Successfully Register')
                 setColor(true)
+                navigate('/home')
                 reset()
             })
             .catch((error) => {

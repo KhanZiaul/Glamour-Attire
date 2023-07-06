@@ -45,7 +45,7 @@ const MySelectedProducts = () => {
                             <th>Product Image</th>
                             <th>Product brand</th>
                             <th>Product Name</th>
-                            <th>Product Numbers</th>
+                            <th>Total Pieces</th>
                             <th>Total Price</th>
                             <th>pay</th>
                             <th>delete</th>

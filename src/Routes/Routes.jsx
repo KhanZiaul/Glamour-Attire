@@ -18,6 +18,7 @@ import Feedback from "../Pages/DashBoard/AdminPanel/Feedback/Feedback";
 import MySelectedProducts from "../Pages/DashBoard/Customer/MySelectedProducts/MySelectedProducts";
 import Payment from "../Pages/DashBoard/Customer/Payment/Payment";
 import MyPaymentHistory from "../Pages/DashBoard/Customer/MyPaymentHistory/MyPaymentHistory";
+import MyOrderedProduct from "../Pages/DashBoard/Customer/MyOrderedProducts/MyOrderedProduct";
 
 const router = createBrowserRouter([
     {
@@ -97,6 +98,10 @@ const router = createBrowserRouter([
         {
           path:'paymentHistory',
           element:<MyPaymentHistory></MyPaymentHistory>
+        },
+        {
+          path:'myOrderedProduct',
+          element:<MyOrderedProduct></MyOrderedProduct>
         }
       ]
     }

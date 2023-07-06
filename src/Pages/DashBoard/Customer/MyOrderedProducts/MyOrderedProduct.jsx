@@ -18,6 +18,8 @@ const MyOrderedProduct = () => {
         }
     })
 
+    console.log(data)
+
     return (
         <div>
             <div className="overflow-x-auto">
@@ -27,25 +29,31 @@ const MyOrderedProduct = () => {
                         <tr className="uppercase bg-[#1B6B93] text-white">
                             <th>#</th>
                             <th>Email</th>
+                            <th>Product Brand</th>
+                            <th>Product Name</th>
                             <th>Total Pieces</th>
-                            <th>Total Amount</th>
-                            <th>Transaction Id</th>
-                            <th>Date</th>
+                            <th>Total Price</th>
+                            <th>Payment</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            data?.map((paymentsHistory, index) => {
+                            data?.map((orderedProduct, index) => {
                                 return (
-                                    <tr key={paymentsHistory._id}>
+                                    <tr key={orderedProduct._id}>
                                         <th>{index + 1}</th>
                                         <td>
-                                            {paymentsHistory.email}
+                                            <div className="avatar">
+                                                <div className="mask mask-squircle w-12 h-12">
+                                                    <img src={orderedProduct?.img} alt="product image" />
+                                                </div>
+                                            </div>
                                         </td>
-                                        <td>{paymentsHistory.productPiece}</td>
-                                        <td>$ {parseFloat(paymentsHistory.productPiece * paymentsHistory.price)}</td>
-                                        <td>{paymentsHistory.TransactionId}</td>
-                                        <td>{paymentsHistory.date}</td>
+                                        <td>{orderedProduct.brand}</td>
+                                        <td>{orderedProduct.productName}</td>
+                                        <td>{orderedProduct.productPiece}</td>
+                                        <td>$ {parseFloat(orderedProduct.productPiece * orderedProduct.price)}</td>
+                                        <td className="text-green-700 font-semibold">Done</td>
                                     </tr>
                                 )
                             })

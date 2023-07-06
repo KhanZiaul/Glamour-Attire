@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form"
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
@@ -12,6 +12,8 @@ const Login = () => {
     const [color, setColor] = useState(true)
     const [loginMessage, setLoginMessage] = useState('')
     const googleProvider = new GoogleAuthProvider();
+    const navigate = useNavigate()
+    const location = useLocation()
     const githubProvider = new GithubAuthProvider();
     const {
         register, reset, handleSubmit,
