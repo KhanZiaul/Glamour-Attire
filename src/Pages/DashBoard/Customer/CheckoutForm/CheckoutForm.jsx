@@ -3,8 +3,9 @@ import './ChexkoutForm.css'
 import { useContext, useEffect, useState } from "react";
 import useAxiosSecure from "../../../../CustomHook/useAxiosSecure/useAxiosSecure";
 import { AuthContext } from "../../../../Provider/AuthProvider/AuthProvider";
+import useSelectedProducts from "../../../../CustomHook/useSelectedProducts/useSelectedProducts";
 
-const CheckoutForm = () => {
+const CheckoutForm = ({ id }) => {
     const stripe = useStripe();
     const elements = useElements();
     const [clientSecret, setClientSecret] = useState("");
@@ -14,15 +15,23 @@ const CheckoutForm = () => {
     const [getError, setError] = useState('')
     const [transactionId, setTransactionId] = useState("");
 
+    const [customerSelectedProducts, refetch] = useSelectedProducts()
+    const selectedProduct = customerSelectedProducts?.find(sp => sp._id === id)
+
+    console.log(selectedProduct)
+
+    const { payment, price, productDetails, productId, productPiece, size, _id } = selectedProduct
+
     useEffect(() => {
+        if (price > 0) {
+            axiosSecure.post('/create-payment-intent', { price: parseFloat(price * productPiece) })
+                .then(data => {
+                    console.log(data.data)
+                    setClientSecret(data.data.clientSecret)
+                })
+        }
 
-        axiosSecure.post('/create-payment-intent', { price: 200 })
-            .then(data => {
-                console.log(data.data)
-                setClientSecret(data.data.clientSecret)
-            })
-
-    }, [axiosSecure]);
+    }, [axiosSecure , productPiece , price]);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -76,14 +85,14 @@ const CheckoutForm = () => {
             const formattedDate = date.toLocaleDateString('en-US', options);
             const timestamp = date.toISOString();
 
-            console.log(formattedDate,timestamp)
-            
-            //     axiosSecure.patch(`/payment/${_id}`, { payment: true, date: formattedDate, availableSeats: availableSeats, students: students, timestamp: timestamp, TransactionId: paymentIntent.id })
-            //         .then(data => {
-            //             console.log(data.data)
-            //         })
+            console.log(formattedDate, timestamp)
 
-            //     // refetch()
+                axiosSecure.patch(`/payment/${_id}`, { payment: "true", date: formattedDate, availableSeats: availableSeats, students: students, timestamp: timestamp, TransactionId: paymentIntent.id })
+                    .then(data => {
+                        console.log(data.data)
+                    })
+
+                // refetch()
 
             //     axiosSecure.patch(`/updateClass/${classId}`, { availableSeats: availableSeats, students: students })
             //         .then(data => {

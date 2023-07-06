@@ -76,13 +76,10 @@ const AddNewProduct = () => {
     }
 
     return (
-        <div className=''>
+        <div>
             <div className=" flex-col lg:flex-row-reverse">
-
                 <form onSubmit={formHandler} className="card flex-shrink-0 w-full  shadow-2xl bg-base-100">
                     <div className="card-body">
-
-
                         <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
                             <div className="form-control">
                                 <label className="label">

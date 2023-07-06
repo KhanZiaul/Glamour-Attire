@@ -55,7 +55,7 @@ const MySelectedProducts = () => {
                         {
                             customerSelectedProducts?.map((selectProduct, index) => {
                                 return (
-                                    <tr className="font-bold" key={selectProduct._id}>
+                                    <tr key={selectProduct._id}>
                                         <th>{index + 1}</th>
                                         <td>
                                             <div className="avatar">

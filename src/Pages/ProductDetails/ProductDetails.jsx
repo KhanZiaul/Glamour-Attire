@@ -64,9 +64,9 @@ const ProductDetails = () => {
                 <form className="space-y-4" onSubmit={formHandler}>
                     <select name="size" className="select w-full max-w-xs border-sky-700">
                         <option disabled selected>Select Size</option>
+                        <option>Small</option>
                         <option>XL</option>
                         <option>XXL</option>
-                        <option>Small</option>
                         <option>Large</option>
                     </select>
                     <div className="flex flex-col lg:flex-row gap-5">
