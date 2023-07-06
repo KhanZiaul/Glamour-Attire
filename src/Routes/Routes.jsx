@@ -17,6 +17,7 @@ import ManageProducts from "../Pages/DashBoard/AdminPanel/ManageProducts/ManageP
 import Feedback from "../Pages/DashBoard/AdminPanel/Feedback/Feedback";
 import MySelectedProducts from "../Pages/DashBoard/Customer/MySelectedProducts/MySelectedProducts";
 import Payment from "../Pages/DashBoard/Customer/Payment/Payment";
+import MyPaymentHistory from "../Pages/DashBoard/Customer/MyPaymentHistory/MyPaymentHistory";
 
 const router = createBrowserRouter([
     {
@@ -92,6 +93,10 @@ const router = createBrowserRouter([
         {
           path:'payment/:id',
           element:<Payment></Payment>
+        },
+        {
+          path:'paymentHistory',
+          element:<MyPaymentHistory></MyPaymentHistory>
         }
       ]
     }
