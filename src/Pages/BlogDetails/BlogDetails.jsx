@@ -1,10 +1,11 @@
 import { useParams } from 'react-router-dom';
 import blog from '../../assets/img/banner/b8.jpg'
 import { useQuery } from '@tanstack/react-query';
+import { ScaleLoader } from 'react-spinners';
 
 const BlogDetails = () => {
-    const { id } = useParams()
 
+    const { id } = useParams()
     const { data } = useQuery({
         queryKey: ['blogs'],
         queryFn: async () => {
@@ -12,6 +13,20 @@ const BlogDetails = () => {
             return res.json()
         }
     })
+
+    if (!data) {
+        return (
+            <div className='h-[100vh] flex justify-center items-center'>
+                <ScaleLoader
+                    color="#3641d6"
+                    height={100}
+                    margin={10}
+                    radius={10}
+                    width={4}
+                />
+            </div>
+        )
+    }
 
     return (
         <div className="pt-12 lg:pt-16 mb-16">

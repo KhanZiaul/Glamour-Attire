@@ -1,16 +1,31 @@
 import { Link } from 'react-router-dom'
 import bgImage from '../../assets/img/banner/b19.jpg'
 import { useQuery } from '@tanstack/react-query';
+import { ScaleLoader } from 'react-spinners';
 
 const Blog = () => {
 
-    const {data : blogs=[]}=useQuery({
-        queryKey:['blogs'],
-        queryFn:async()=>{
+    const { data } = useQuery({
+        queryKey: ['blogs'],
+        queryFn: async () => {
             const res = await fetch('http://localhost:3000/blogs')
             return res.json()
         }
     })
+
+    if (!Array.isArray(data)) {
+        return (
+            <div className='h-[100vh] flex justify-center items-center'>
+                <ScaleLoader
+                    color="#3641d6"
+                    height={100}
+                    margin={10}
+                    radius={10}
+                    width={4}
+                />
+            </div>
+        )
+    }
 
     return (
         <div className="pt-12 lg:pt-16 mb-10">
@@ -25,7 +40,7 @@ const Blog = () => {
             </div>
             <div className='my-16'>
                 {
-                    blogs?.map((blog, index) => {
+                    data?.map((blog, index) => {
                         return (
                             <div key={index}>
                                 <div className='flex flex-col lg:flex-row justify-center gap-10 mb-8 items-center'>
