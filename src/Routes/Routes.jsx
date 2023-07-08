@@ -22,6 +22,7 @@ import MyOrderedProduct from "../Pages/DashBoard/Customer/MyOrderedProducts/MyOr
 import PrivateProvider from "../Provider/PrivateProvider/PrivateProvider";
 import AdminProvider from "../Provider/AdminProvider/AdminProvider";
 import SellerProvider from "../Provider/SellerProvider/SellerProvider";
+import BlogDetails from "../Pages/BlogDetails/BlogDetails";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: '/blog',
         element: <Blog></Blog>
+      },
+      {
+        path: '/blogDetails',
+        element: <BlogDetails></BlogDetails>
       },
       {
         path: '/about',
