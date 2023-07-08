@@ -3,6 +3,7 @@ import bgImage from '../../assets/img/banner/b19.jpg'
 import { useQuery } from '@tanstack/react-query';
 
 const Blog = () => {
+
     const {data : blogs=[]}=useQuery({
         queryKey:['blogs'],
         queryFn:async()=>{
@@ -24,19 +25,19 @@ const Blog = () => {
             </div>
             <div className='my-16'>
                 {
-                    blogs.map((blog, index) => {
+                    blogs?.map((blog, index) => {
                         return (
                             <div key={index}>
                                 <div className='flex flex-col lg:flex-row justify-center gap-10 mb-8 items-center'>
                                     <div>
-                                        <img className='w-[350px] h-[350px]' src={blog.image} alt="" />
+                                        <img className='w-[350px] h-[350px]' src={blog?.image} alt="" />
                                     </div>
                                     <div className='w-[90%] lg:w-[50%] space-y-4'>
-                                        <p className='text-2xl font-bold'>{blog.title}</p>
-                                        <p className='text-justify'>{blog.blog.slice(0, 200)}...</p>
+                                        <p className='text-2xl font-bold'>{blog?.title}</p>
+                                        <p className='text-justify'>{blog?.blog?.slice(0, 200)}...</p>
 
                                         <div>
-                                            <Link to='/blogDetails'>
+                                            <Link to={`/blogDetails/${blog?._id}`}>
                                                 <p className='font-bold uppercase text-blue-700 cursor-pointer'>Continue Reading</p>
                                             </Link>
                                         </div>

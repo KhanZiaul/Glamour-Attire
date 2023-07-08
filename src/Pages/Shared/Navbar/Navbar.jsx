@@ -65,7 +65,7 @@ const Navbar = () => {
                                 isActive ? "active" : ""
                             }
                         >
-                            BLOG
+                            BLOGS
                         </NavLink>
                         <NavLink
                             to="/about"
@@ -161,7 +161,7 @@ const Navbar = () => {
                                     isActive ? "active" : ""
                                 }
                             >
-                                BLOG
+                                BLOGS
                             </NavLink>
                         </li>
 
