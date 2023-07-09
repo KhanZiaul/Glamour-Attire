@@ -30,37 +30,37 @@ const AboutUs = () => {
 
             <div className='mx-20'>
                 <h2 className='text-3xl text-center my-16 font-bold'>Meet Our Team Members</h2>
+                <div className='grid grid-cols-1 lg:grid-cols-2'>
+                    <div data-aos="fade-right" className='space-y-2 mb-10 flex flex-col items-center justify-center'>
+                        <img className='w-full lg:w-[400px] lg:h-[500px] mb-10' src={b1} alt="" />
+                        <h2 className='text-xl font-bold'>Jhonny Khalifa</h2>
+                        <p className='font-bold'>Senior HR</p>
+                    </div>
 
-                <div className='space-y-2 mb-10'>
-                    <img className='w-[400px] h-[500px] mb-10' src={b1} alt="" />
-                    <h2 className='text-xl font-bold'>Jhonny Khalifa</h2>
-                    <p className='font-bold'>Senior HR</p>
+                    <div data-aos="fade-left" className='space-y-2 mb-10 flex flex-col items-center justify-center'>
+                        <img className='w-full lg:w-[400px] lg:h-[500px] mb-10' src={g1} alt="" />
+                        <h2 className='text-xl font-bold'>Sophia Perez</h2>
+                        <p className='font-bold'>Head of Sales</p>
+                    </div>
+
+                    <div data-aos="fade-right" className='space-y-2 mb-10 flex flex-col items-center justify-center'>
+                        <img className='w-full lg:w-[400px] lg:h-[500px] mb-10' src={g2} alt="" />
+                        <h2 className='text-xl font-bold'>Aliah Lana</h2>
+                        <p className='font-bold'>Jr. Sales Manager</p>
+                    </div>
+
+                    <div data-aos="fade-left" className='space-y-2 mb-10 flex flex-col items-center justify-center'>
+                        <img className='w-full lg:w-[400px] lg:h-[500px] mb-10' src={g3} alt="" />
+                        <h2 className='text-xl font-bold'>Natali Chirgi</h2>
+                        <p className='font-bold'>Product Desinger</p>
+                    </div>
+
                 </div>
-
-                <div className='space-y-2 mb-10'>
-                    <img className='w-[400px] h-[500px]' src={g1} alt="" />
-                    <h2 className='text-xl font-bold'>Sophia Perez</h2>
-                    <p className='font-bold'>Head of Sales</p>
-                </div>
-
-                <div className='space-y-2 mb-10'>
-                    <img className='w-[400px] h-[500px] mb-10' src={g2} alt="" />
-                    <h2 className='text-xl font-bold'>Aliah Lana</h2>
-                    <p className='font-bold'>Jr. Sales Manager</p>
-                </div>
-
-                <div className='space-y-2 mb-10'>
-                    <img className='w-[400px] h-[500px] mb-10' src={g3} alt="" />
-                    <h2 className='text-xl font-bold'>Natali Chirgi</h2>
-                    <p className='font-bold'>Product Desinger</p>
-                </div>
-
-                <div className='space-y-2 mb-10'>
-                    <img className='w-[400px] h-[500px] mb-10' src={b2} alt="" />
+                <div data-aos="flip-up" className='space-y-2 mb-10 flex flex-col items-center justify-center'>
+                    <img className='w-full lg:w-[400px] lg:h-[500px] mb-10' src={b2} alt="" />
                     <h2 className='text-xl font-bold'>Loki Bright</h2>
                     <p className='font-bold'>Growth Manager</p>
                 </div>
-
             </div>
 
         </div>
