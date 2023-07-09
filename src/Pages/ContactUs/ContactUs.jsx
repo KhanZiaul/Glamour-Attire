@@ -66,15 +66,14 @@ const ContactUs = () => {
                 </div>
             </div>
 
-            <div className='flex flex-col lg:flex-row items-center mx-6 gap-8 mt-20'>
-                <div data-aos="fade-down"
-                    data-aos-easing="linear"
-                    data-aos-duration="1500" className='mt-28 flex flex-col-reverse lg:flex-row'>
-                    <div className='w-full md:w-2/4 mx-auto border-2 p-10 rounded-xl shadow-2xl border-[#3abc47]'>
+            
+                <div className='mt-28 flex gap-10 '>
+                    <div className='w-[80%] mx-auto border-2 p-10 rounded-xl shadow-2xl'>
+                        <h2 className='text-2xl font-bold text-center'>Still have any questions ?</h2>
                         <form ref={form} onSubmit={sendEmail}>
                             <div>
                                 <div className="flex items-center border-b border-slate-700 py-2 mb-4 pt-10">
-                                    <input className="shadow-2xl appearance-none bg-transparent border-none w-full mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="Enter your name" name="user_name" aria-label="Full name" required />
+                                    <input className="shadow-2xl appearance-none bg-transparent border-none w-full mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="Enter your full name" name="user_name" aria-label="Full name" required />
                                 </div>
 
                                 <div className='mb-8'>
@@ -87,21 +86,20 @@ const ContactUs = () => {
                                 </textarea>
 
                                 <div className="form-control mt-6">
-                                    <div className='inline-block shadow-2xl'>
+                                    <div >
                                         <button className="bg-[#68d372] hover:bg-[#3abc47] duration-200 px-5 py-3 rounded-md flex items-center justify-center gap-2"><BsSend className='w-6 h-6'></BsSend> Send Message</button>
                                     </div>
                                 </div>
                             </div>
                         </form>
                     </div>
-                    <div className='lg:w-[80%] w-full'>
-                        <img src={email} alt="" />
-                    </div>
                 </div>
-
-            </div>
         </div>
     )
 }
 
 export default ContactUs;
+
+// // data-aos="fade-down"
+// data-aos-easing="linear"
+// data-aos-duration="1500"
