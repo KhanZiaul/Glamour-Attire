@@ -8,15 +8,21 @@ import { ScaleLoader } from 'react-spinners';
 
 const Shop = () => {
     const [products, setProducts] = useState()
+
+    // Pegination 
+
     const { totalProducts } = useLoaderData()
+    const [currentpage, setCurrentPage] = useState(0)
+    const [itemsperPage, setItemsperPage] = useState(10)
+
     useEffect(() => {
-        fetch('http://localhost:3000/products')
+        fetch(`http://localhost:3000/products?page=${currentpage}&limit=${itemsperPage}`)
             .then(res => res.json())
             .then(datas => {
                 const approvedDatas = datas?.filter(data => data.isApproved === "approved")
                 setProducts(approvedDatas)
             })
-    }, [])
+    }, [currentpage, itemsperPage])
 
     if (!Array.isArray(products)) {
         return (
@@ -32,7 +38,17 @@ const Shop = () => {
         )
     }
 
-    console.log(totalProducts)
+    // Pegination 
+
+    const totalPages = Math.ceil(totalProducts / itemsperPage)
+    const pages = [...Array(totalPages).keys()]
+    const options = [5, 10, 15, 20]
+
+    function slectedValue(event) {
+        setItemsperPage(event.target.value)
+        setCurrentPage(0)
+    }
+
 
     return (
         <div className="pt-12 lg:pt-16 mb-16">
@@ -70,6 +86,30 @@ const Shop = () => {
                     })
                 }
             </div>
+
+            {/* Pegination */}
+
+            <div>
+                <div className='my-20 flex items-center justify-center'>
+                    <div>
+                        {
+                            pages?.map(number => {
+                                return <button key={number} onClick={() => setCurrentPage(number)} className={`bg-[#9DB2BF] rounded-md mx-3 text-white ${currentpage === number ? 'bg-blue-700' : ''}`}>{number}</button>
+                            })
+                        }
+                    </div>
+                    <div className="flex items-center justify-center mt-4">
+                        <select value={itemsperPage} className='bg-[#9DB2BF] py-2 px-1 rounded-md mx-3 text-white w-16' onChange={slectedValue}>
+                            {
+                                options.map((num, index) => {
+                                    return <option key={index} value={num}>{num}</option>
+                                })
+                            }
+                        </select>
+                    </div>
+                </div>
+            </div>
+
         </div>
     );
 };
