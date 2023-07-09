@@ -6,7 +6,7 @@ import Register from "../LoginRegister/Register/Register";
 import Shop from "../Pages/Shop/Shop";
 import ProductDetails from "../Pages/ProductDetails/ProductDetails";
 import Blog from "../Pages/Blog/Blog";
-import AboutUs from "../AboutUs/AboutUs";
+import AboutUs from "../Pages/AboutUs/AboutUs";
 import DashBoardLayout from "../Layouts/DashBoardLayout";
 import ManageUsers from "../Pages/DashBoard/AdminPanel/ManageUsers/ManageUsers";
 import AddNewProduct from "../Pages/DashBoard/SellerPanel/AddNewProduct/AddNewProduct";
@@ -23,6 +23,7 @@ import PrivateProvider from "../Provider/PrivateProvider/PrivateProvider";
 import AdminProvider from "../Provider/AdminProvider/AdminProvider";
 import SellerProvider from "../Provider/SellerProvider/SellerProvider";
 import BlogDetails from "../Pages/BlogDetails/BlogDetails";
+import ContactUs from "../Pages/ContactUs/ContactUs";
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
       {
         path: '/about',
         element: <AboutUs></AboutUs>
+      },
+      {
+        path:'contact',
+        element:<ContactUs></ContactUs>
       },
       {
         path: '/login',

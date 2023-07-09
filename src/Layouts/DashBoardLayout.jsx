@@ -145,7 +145,7 @@ const DashboardLayout = () => {
                                     isActive ? "active" : ""
                                 }
                             >
-                                <FaBloggerB className="w-5 h-5 text-[#d56e59]"></FaBloggerB> BLOG
+                                <FaBloggerB className="w-5 h-5 text-[#d56e59]"></FaBloggerB> BLOGS
                             </NavLink>
                         </li>
                         <li>
@@ -165,7 +165,7 @@ const DashboardLayout = () => {
                                     isActive ? "active" : ""
                                 }
                             >
-                                <FcBusinessContact className="w-5 h-5 text-white"></FcBusinessContact> CONTACT
+                                <FcBusinessContact className="w-5 h-5 text-white"></FcBusinessContact>CONTACT
                             </NavLink>
                         </li>
 
