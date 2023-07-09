@@ -12,7 +12,7 @@ const Blog = () => {
             return res.json()
         }
     })
-
+    
     if (!Array.isArray(data)) {
         return (
             <div className='h-[100vh] flex justify-center items-center'>

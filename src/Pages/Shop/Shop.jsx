@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
 import { BsCart2 } from 'react-icons/bs';
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import bgImage from '../../assets/img/banner/b1.jpg'
+import { ScaleLoader } from 'react-spinners';
 
 const Shop = () => {
     const [products, setProducts] = useState()
+    const { totalProducts } = useLoaderData()
     useEffect(() => {
         fetch('http://localhost:3000/products')
             .then(res => res.json())
@@ -15,6 +17,22 @@ const Shop = () => {
                 setProducts(approvedDatas)
             })
     }, [])
+
+    if (!Array.isArray(products)) {
+        return (
+            <div className='h-[100vh] flex justify-center items-center'>
+                <ScaleLoader
+                    color="#3641d6"
+                    height={100}
+                    margin={10}
+                    radius={10}
+                    width={4}
+                />
+            </div>
+        )
+    }
+
+    console.log(totalProducts)
 
     return (
         <div className="pt-12 lg:pt-16 mb-16">
