@@ -2,7 +2,34 @@ import contact from '../../assets/img/about/contact.jpg'
 import talk from '../../assets/img/about/talk.jpg'
 import email from '../../assets/img/about/email.jpg'
 
+import { BsSend } from 'react-icons/bs';
+import { useRef } from "react";
+import emailjs from "@emailjs/browser";
+import Swal from 'sweetalert2';
+
 const ContactUs = () => {
+
+    const form = useRef();
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        emailjs.sendForm('service_mengp27', 'template_ksqs4zg', form.current, '6D1J9Owz6JOrhtOxw')
+            .then((result) => {
+                console.log(result.text);
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Message was sent',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                e.target.reset()
+            }, (error) => {
+                console.log(error.text);
+            });
+    };
+
     return (
         <div className='pt-12 lg:pt-16 mb-10'>
             <div className="hero h-[300px] mb-8" style={{ backgroundImage: `url(${contact})` }}>
