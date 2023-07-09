@@ -24,7 +24,9 @@ const FeaturedProducts = () => {
                 {
                     featuredProducts?.slice(0, 6).map(featuredProduct => {
                         return (
-                            <div className="border-2 p-5 space-y-2 rounded-2xl" key={featuredProduct._id}>
+                            <div data-aos="fade-down"
+                            data-aos-easing="linear"
+                            data-aos-duration="1500" className="border-2 p-5 space-y-2 rounded-2xl" key={featuredProduct._id}>
                                 <Link to={`/productDetails/${featuredProduct._id}`}>
                                     <img className="w-full lg:h-80 mx-auto rounded-2xl" src={featuredProduct.img} alt="" />
                                     <p className="font-semibold text-gray-600">{featuredProduct.brand}</p>

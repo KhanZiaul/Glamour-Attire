@@ -66,7 +66,9 @@ const Shop = () => {
                 {
                     products?.map(product => {
                         return (
-                            <div className="border-2 p-5 space-y-2 rounded-2xl" key={product._id}>
+                            <div data-aos="fade-down"
+                            data-aos-easing="linear"
+                            data-aos-duration="1500" className="border-2 p-5 space-y-2 rounded-2xl" key={product._id}>
                                 <Link to={`/productDetails/${product._id}`}>
                                     <img className="w-full lg:h-80 mx-auto rounded-2xl" src={product.img} alt="" />
                                     <p className="font-semibold text-gray-600">{product.brand}</p>
