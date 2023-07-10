@@ -7,10 +7,11 @@ import axios from "axios";
 
 const Register = () => {
 
-    const { createUser , logOut } = useContext(AuthContext)
+    const { createUser, logOut } = useContext(AuthContext)
     const [color, setColor] = useState(true)
     const navigate = useNavigate()
     const [registerMessage, setRegisterMessage] = useState('')
+    const [isCheck, setIsCheck] = useState(false)
     const {
         register, formState: { errors }, reset, handleSubmit,
     } = useForm()
@@ -50,6 +51,12 @@ const Register = () => {
                 setColor(false)
             });
     }
+
+    function checkboxHandler(event) {
+
+        setIsCheck(event.target.checked)
+    }
+
 
     return (
         <div className="hero pt-24 pb-8 bg-base-200">
@@ -97,8 +104,13 @@ const Register = () => {
 
                         <p className={`text-center my-3 font-bold  ${color ? 'text-green-500' : 'text-red-500'}`}>{registerMessage}</p>
 
+                        <div className='flex items-center gap-3'>
+                            <input onClick={checkboxHandler} type="checkbox" className="checkbox checkbox-primary bg-slate-200 mt-4" />
+                            <span>Accept <Link className=' text-blue-600 underline' to='/termsCondition'>Terms and Conditions</Link> </span>
+                        </div>
+
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary text-white">Register</button>
+                            <button disabled={!isCheck} className="btn btn-primary">Register</button>
                         </div>
                     </form>
                 </div>
