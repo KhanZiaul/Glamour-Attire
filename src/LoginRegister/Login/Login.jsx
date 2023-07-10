@@ -7,7 +7,7 @@ import { FaGoogle, FaGithub } from "react-icons/fa";
 import axios from "axios";
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import useScroll from "../../CustomHook/useScroll/useScroll";
-import useTitle from "../../CustomHook/userTitle/useTitle";
+import useTitle from "../../CustomHook/useTitle/useTitle";
 
 
 const Login = () => {

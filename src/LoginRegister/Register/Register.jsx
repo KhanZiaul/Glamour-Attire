@@ -5,7 +5,7 @@ import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import axios from "axios";
 import useScroll from "../../CustomHook/useScroll/useScroll";
-import useTitle from "../../CustomHook/userTitle/useTitle";
+import useTitle from "../../CustomHook/useTitle/useTitle";
 
 const Register = () => {
 

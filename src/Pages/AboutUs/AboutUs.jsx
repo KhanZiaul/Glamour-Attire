@@ -7,8 +7,14 @@ import g3 from '../../assets/img/US/g3.jpg'
 import quality from '../../assets/img/Service/certificate.jpg'
 import delivery from '../../assets/img/Service/deliver.jpg'
 import order from '../../assets/img/Service/order.jpg'
+import useScroll from '../../CustomHook/useScroll/useScroll'
+import { useLocation } from 'react-router-dom'
+import useTitle from "../../CustomHook/useTitle/useTitle";
 
 const AboutUs = () => {
+    const location = useLocation()
+    useScroll(location.pathname)
+    useTitle('About')
     return (
         <div className='pt-12 lg:pt-16 mb-10'>
             <div className="hero h-[300px] mb-8" style={{ backgroundImage: `url(${bgImage})` }}>

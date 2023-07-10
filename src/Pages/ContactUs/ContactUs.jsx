@@ -4,9 +4,14 @@ import { BsSend } from 'react-icons/bs';
 import { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import Swal from 'sweetalert2';
+import useTitle from '../../CustomHook/useTitle/useTitle';
+import useScroll from '../../CustomHook/useScroll/useScroll';
+import { useLocation } from 'react-router-dom';
 
 const ContactUs = () => {
-    
+    const location = useLocation()
+    useScroll(location.pathname)
+    useTitle('Contact')
     const form = useRef();
     const sendEmail = (e) => {
         e.preventDefault();

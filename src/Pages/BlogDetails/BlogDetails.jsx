@@ -1,10 +1,14 @@
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import blog from '../../assets/img/banner/b8.jpg'
 import { useQuery } from '@tanstack/react-query';
 import { ScaleLoader } from 'react-spinners';
+import useTitle from '../../CustomHook/useTitle/useTitle';
+import useScroll from '../../CustomHook/useScroll/useScroll';
 
 const BlogDetails = () => {
-
+    const location = useLocation()
+    useScroll(location.pathname)
+    useTitle('Blog Details')
     const { id } = useParams()
     const { data } = useQuery({
         queryKey: ['blogs'],
