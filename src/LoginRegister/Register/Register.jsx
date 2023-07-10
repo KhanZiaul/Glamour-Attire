@@ -59,32 +59,30 @@ const Register = () => {
 
 
     return (
-        <div className="hero pt-24 pb-8 bg-base-200">
-            <div className="flex-col w-full lg:w-2/4">
-                <div className="text-center lg:text-left">
-                    <h1 className="text-2xl text-center mb-4 font-bold">REGISTER</h1>
-                </div>
+        <div className="mx-4 mb-5 lg-mx-0 pt-20 lg:pt-24 lg:pb-8 bg-base-200">
+            <div className="flex-col w-full lg:mx-auto lg:w-2/4">
                 <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100">
+                    <h1 className="text-2xl text-center mt-4 lg:mt-9 font-bold">REGISTER</h1>
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body">
-                        <div className="form-control">
+                        <div className="form-control w-[300px] lg:w-full">
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
                             <input {...register("name", { required: true })} type="text" placeholder="Enter your name" className="input input-bordered" />
                         </div>
-                        <div className="form-control">
+                        <div className="form-control w-[300px] lg:w-full">
                             <label className="label">
                                 <span className="label-text">Photo URL</span>
                             </label>
                             <input {...register("URL", { required: true })} type="url" placeholder="Enter your Photo URL" className="input input-bordered" />
                         </div>
-                        <div className="form-control">
+                        <div className="form-control w-[300px] lg:w-full">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
                             <input {...register("email", { required: true })} type="email" placeholder="Enter your email" className="input input-bordered" />
                         </div>
-                        <div className="form-control">
+                        <div className="form-control w-[300px] lg:w-full">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
