@@ -102,19 +102,18 @@ const Login = () => {
     }
 
     return (
-        <div className="mx-5 lg-mx-0 lg:pt-24 lg:pb-8 bg-base-200">
+        <div className="mx-4 mb-5 lg-mx-0 pt-20 lg:pt-24 lg:pb-8 bg-base-200">
             <div className="flex-col w-full lg:mx-auto lg:w-2/4">
-                
                 <div className="card w-full shadow-2xl bg-base-100">
-                    <h1 className="text-2xl text-center my-4 font-bold">LOGIN</h1>
-                    <form onSubmit={handleSubmit(onSubmit)} >
-                        <div className="form-control">
-                            <label className="label">
+                    <h1 className="text-2xl text-center mt-4 lg:mt-9 font-bold">LOGIN</h1>
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <div className="form-control w-[300px] lg:w-full">
+                            <label className="label mt-0">
                                 <span className="label-text">Email</span>
                             </label>
                             <input {...register("email", { required: true })} type="email" placeholder="Enter your email" className="input input-bordered" />
                         </div>
-                        <div className="">
+                        <div className="form-control w-[300px] lg:w-full">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
@@ -123,7 +122,7 @@ const Login = () => {
                             <div className="flex items-center mt-4 mb-2">
                                 < LoadCanvasTemplate />
                             </div>
-                            <div className="flex items-center border-b border-slate-700 py-2 mb-4">
+                            <div className="flex items-center py-2 mb-4 w-[300px] lg:w-full">
                                 <input onBlur={captchaHandler} className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="Enter your capta" name='captcha' aria-label="Full name" required />
                             </div>
 
