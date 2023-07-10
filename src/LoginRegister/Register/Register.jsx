@@ -95,11 +95,6 @@ const Register = () => {
                             {errors.password?.type === 'minLength' && <p role="alert" className='text-red-500 font-bold my-2'>password should be at least 6 characters</p>}
 
                             {errors.password?.type === 'pattern' && <p role="alert" className='text-red-500 font-bold my-2'>password should be at least one number, one special character and one uppercase</p>}
-
-                            <label className="label mt-4">
-                                <p className="label-text-alt">Already have an account? <span className="link link-hover text-blue-700"><Link to='/login'>Login Now</Link></span></p>
-                            </label>
-
                         </div>
 
                         <p className={`text-center my-3 font-bold  ${color ? 'text-green-500' : 'text-red-500'}`}>{registerMessage}</p>
@@ -108,6 +103,10 @@ const Register = () => {
                             <input onClick={checkboxHandler} type="checkbox" className="checkbox checkbox-primary bg-slate-200 mt-4" />
                             <span>Accept <Link className=' text-blue-600 underline' to='/termsCondition'>Terms and Conditions</Link> </span>
                         </div>
+
+                        <label className="label mt-4">
+                            <p className="label-text-alt">Already have an account? <span className="link link-hover text-blue-700"><Link to='/login'>Login Now</Link></span></p>
+                        </label>
 
                         <div className="form-control mt-6">
                             <button disabled={!isCheck} className="btn btn-primary">Register</button>

@@ -1,16 +1,19 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form"
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import axios from "axios";
+import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
+
 
 const Login = () => {
 
     const { signinUser, signInPopup } = useContext(AuthContext)
     const [color, setColor] = useState(true)
     const [loginMessage, setLoginMessage] = useState('')
+    const [captcha, setCaptcha] = useState(true)
     const googleProvider = new GoogleAuthProvider();
     const navigate = useNavigate()
     const location = useLocation()
@@ -79,6 +82,25 @@ const Login = () => {
             });
     }
 
+    // Captcha
+
+    useEffect(() => {
+        loadCaptchaEnginge(6);
+    }, [])
+
+    function captchaHandler(event) {
+
+        const user_captcha_value = event.target.value;
+
+        if (validateCaptcha(user_captcha_value) == true) {
+            setCaptcha(false)
+        }
+
+        else {
+            setCaptcha(true)
+        }
+    }
+
     return (
         <div className="hero pt-24 pb-8 bg-base-200">
             <div className="flex-col w-2/4">
@@ -99,15 +121,22 @@ const Login = () => {
                             </label>
                             <input type="password" {...register("password", { required: true })} placeholder="Enter your password" className="input input-bordered" />
 
+                            <div className="flex items-center mt-4 mb-2">
+                                < LoadCanvasTemplate />
+                            </div>
+                            <div className="flex items-center border-b border-slate-700 py-2 mb-4">
+                                <input onBlur={captchaHandler} className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="Enter your capta" name='captcha' aria-label="Full name" required />
+                            </div>
+
+                            <p className={`text-center my-3 font-bold  ${color ? 'text-green-500' : 'text-red-500'}`}>{loginMessage}</p>
+
                             <label className="label my-4">
                                 <p className="label-text-alt">New to Glamour Attire? <span className="link link-hover text-blue-700"><Link to='/register'>Register Now</Link></span></p>
                             </label>
                         </div>
 
-                        <p className={`text-center my-3 font-bold  ${color ? 'text-green-500' : 'text-red-500'}`}>{loginMessage}</p>
-
                         <div className="form-control">
-                            <button className="btn btn-primary text-white">LOGIN</button>
+                            <button disabled={captcha} className="btn btn-primary text-white">LOGIN</button>
                         </div>
                     </form>
                     <div className="flex justify-center gap-10 mb-8">
