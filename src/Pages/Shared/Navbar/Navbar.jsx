@@ -106,10 +106,10 @@ const Navbar = () => {
                                                 <FaUser title={user.displayName} className=' bg-slate-400 w-10 h-10 rounded-full cursor-pointer p-2' />
                                         }
                                     </div>
-                                    <button onClick={logOutHandler} className="rounded-md bg-sky-700 text-white font-semibold mb-2">Log out</button>
+                                    <button onClick={logOutHandler} className="bg-sky-700 text-white font-semibold mb-2">Log out</button>
                                 </div>
                                 :
-                                <Link to='/login'><button className="rounded-md bg-sky-700 text-white font-semibold mb-2">Login</button></Link>
+                                <Link to='/login'><button className="bg-sky-700 text-white font-semibold mb-2">Login</button></Link>
                         }
                     </div>
                 </div>

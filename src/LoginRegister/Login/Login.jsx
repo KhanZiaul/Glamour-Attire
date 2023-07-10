@@ -102,20 +102,19 @@ const Login = () => {
     }
 
     return (
-        <div className="hero pt-24 pb-8 bg-base-200">
-            <div className="flex-col w-2/4">
-                <div className="text-center lg:text-left">
-                    <h1 className="text-2xl text-center mb-4 font-bold">LOGIN</h1>
-                </div>
-                <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100">
-                    <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+        <div className="mx-5 lg-mx-0 lg:pt-24 lg:pb-8 bg-base-200">
+            <div className="flex-col w-full lg:mx-auto lg:w-2/4">
+                
+                <div className="card w-full shadow-2xl bg-base-100">
+                    <h1 className="text-2xl text-center my-4 font-bold">LOGIN</h1>
+                    <form onSubmit={handleSubmit(onSubmit)} >
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
                             <input {...register("email", { required: true })} type="email" placeholder="Enter your email" className="input input-bordered" />
                         </div>
-                        <div className="form-control">
+                        <div className="">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
@@ -128,34 +127,32 @@ const Login = () => {
                                 <input onBlur={captchaHandler} className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="Enter your capta" name='captcha' aria-label="Full name" required />
                             </div>
 
-                            <p className={`text-center my-3 font-bold  ${color ? 'text-green-500' : 'text-red-500'}`}>{loginMessage}</p>
 
                             <label className="label my-4">
                                 <p className="label-text-alt">New to Glamour Attire? <span className="link link-hover text-blue-700"><Link to='/register'>Register Now</Link></span></p>
                             </label>
+
                         </div>
+
+                        <p className={`text-center my-3 font-bold  ${color ? 'text-green-500' : 'text-red-500'}`}>{loginMessage}</p>
 
                         <div className="form-control">
                             <button disabled={captcha} className="btn btn-primary text-white">LOGIN</button>
                         </div>
                     </form>
-                    <div className="flex justify-center gap-10 mb-8">
+                    <div className="flex flex-col md:flex-row justify-center gap-10 mb-8">
 
-                        <div className='flex flex-col md:flex-row gap-5 justify-around shadow-2xl'>
-                            <div className='inline-block'>
-                                <div onClick={googleHandler} className='cursor-pointer flex items-center rounded-lg text-blue-700 px-8 py-3 gap-4 hover:bg-blue-800 hover:text-white'>
-                                    <FaGoogle></FaGoogle>
-                                    <span>Google Sign-in</span>
-                                </div>
+                        <div className='shadow-2xl'>
+                            <div onClick={googleHandler} className='cursor-pointer flex items-center rounded-lg text-blue-700 px-8 py-3 gap-4 hover:bg-blue-800 hover:text-white'>
+                                <FaGoogle></FaGoogle>
+                                <span>Google Sign-in</span>
                             </div>
                         </div>
 
-                        <div className='flex flex-col md:flex-row gap-5 justify-around shadow-2xl'>
-                            <div className='inline-block'>
-                                <div onClick={githubHandler} className='cursor-pointer flex items-center rounded-lg text-blue-700 px-8 py-3 gap-4 hover:bg-blue-800 hover:text-white '>
-                                    <FaGithub></FaGithub>
-                                    <span>Github Sign-in</span>
-                                </div>
+                        <div className='shadow-2xl'>
+                            <div onClick={githubHandler} className='cursor-pointer flex items-center rounded-lg text-blue-700 px-8 py-3 gap-4 hover:bg-blue-800 hover:text-white '>
+                                <FaGithub></FaGithub>
+                                <span>Github Sign-in</span>
                             </div>
                         </div>
                     </div>

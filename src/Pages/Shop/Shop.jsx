@@ -13,7 +13,7 @@ const Shop = () => {
 
     const { totalProducts } = useLoaderData()
     const [currentpage, setCurrentPage] = useState(0)
-    const [itemsperPage, setItemsperPage] = useState(10)
+    const [itemsperPage, setItemsperPage] = useState(5)
 
     useEffect(() => {
         fetch(`http://localhost:3000/products?page=${currentpage}&limit=${itemsperPage}`)
