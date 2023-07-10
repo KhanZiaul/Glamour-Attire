@@ -1,5 +1,4 @@
 import bgImage from '../../assets/img/banner/b2.jpg'
-import about from '../../assets/img/about/about.jpg'
 import b1 from '../../assets/img/US/b1.jpg'
 import b2 from '../../assets/img/US/b2.jpg'
 import g1 from '../../assets/img/US/g1.jpg'
@@ -22,9 +21,6 @@ const AboutUs = () => {
             </div>
 
             <div>
-                <div className='lg:w-[80%] mx-auto w-full'>
-                    <img className='w-full h-[520px] mx-auto' src={about} alt="" />
-                </div>
                 <div className='space-y-3 text-justify mx-10'>
                     <h2 className='font-bold text-2xl text-center my-10 uppercase'> Our Vision and Values</h2>
                     <p> Welcome to GlamourAttire, your ultimate destination for all things glamorous in the world of fashion. We are an online e-commerce platform dedicated to providing you with the trendiest and most stylish attire for any occasion. At GlamourAttire, we believe that fashion is a form of self-expression, and we strive to empower individuals to embrace their unique style and feel confident in what they wear. Our curated collection features a wide range of clothing, accessories, and footwear carefully selected to cater to diverse tastes and preferences.</p>
