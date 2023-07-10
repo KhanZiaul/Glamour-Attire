@@ -1,9 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Swal from "sweetalert2";
 import useSelectedProducts from "../../../../CustomHook/useSelectedProducts/useSelectedProducts";
 import useAxiosSecure from "../../../../CustomHook/useAxiosSecure/useAxiosSecure";
+import useTitle from "../../../../CustomHook/useTitle/useTitle";
+import useScroll from "../../../../CustomHook/useScroll/useScroll";
 
 const MySelectedProducts = () => {
+    const location = useLocation()
+    useScroll(location.pathname)
+    useTitle('My Selected Products | Dashboard')
 
     const [axiosSecure] = useAxiosSecure()
     const [customerSelectedProducts, refetch] = useSelectedProducts()

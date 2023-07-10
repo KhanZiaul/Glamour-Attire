@@ -2,9 +2,15 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../CustomHook/useAxiosSecure/useAxiosSecure";
 import { useContext } from "react";
 import { AuthContext } from "../../../../Provider/AuthProvider/AuthProvider";
+import useTitle from "../../../../CustomHook/useTitle/useTitle";
+import useScroll from "../../../../CustomHook/useScroll/useScroll";
+import { useLocation } from "react-router-dom";
 
 
 const MyOrderedProduct = () => {
+    const location = useLocation()
+    useScroll(location.pathname)
+    useTitle('My Ordered Product | Dashboard')
 
     const [axiosSecure] = useAxiosSecure()
     const { user, loading } = useContext(AuthContext)
