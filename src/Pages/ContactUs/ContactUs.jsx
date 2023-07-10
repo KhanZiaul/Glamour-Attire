@@ -54,12 +54,6 @@ const ContactUs = () => {
                         Bangladesh</p>
 
                     <p>Our customer service team is available 24/7 to assist you with any issues you may have. You can also connect with us on social media:</p>
-
-                    <p className=' font-normal'>
-                        facebook : <span className='text-blue-500 underline cursor-pointer'>@GlamourAttire.facebook.com</span><br />
-                        twitter : <span className='text-blue-500 underline cursor-pointer' >@GlamourAttire.twitter.com</span><br />
-                        instagram : <span className='text-blue-500 underline cursor-pointer'>@GlamourAttire.instagram.com</span><br />
-                    </p>
                 </div>
             </div>
 
