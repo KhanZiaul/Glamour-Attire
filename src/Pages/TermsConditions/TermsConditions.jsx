@@ -1,6 +1,13 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import useTitle from '../../CustomHook/useTitle/useTitle';
+import useScroll from '../../CustomHook/useScroll/useScroll';
 
 const TermsConditions = () => {
+
+    const location = useLocation()
+    useScroll(location.pathname)
+    useTitle('Terms & Conditions')
+
     return (
 
         <div className='pt-28 border-2 p-10 '>

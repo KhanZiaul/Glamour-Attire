@@ -2,12 +2,17 @@ import { useContext } from "react";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../CustomHook/useAxiosSecure/useAxiosSecure";
 import { AuthContext } from "../../../../Provider/AuthProvider/AuthProvider";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import useProducts from "../../../../CustomHook/useProducts/useProducts";
+import useTitle from "../../../../CustomHook/useTitle/useTitle";
+import useScroll from "../../../../CustomHook/useScroll/useScroll";
 
 const img_key = import.meta.env.VITE_IMAG_KEY
 
 const UpdateProduct = () => {
+    const location = useLocation()
+    useScroll(location.pathname)
+    useTitle('Update Product | Dashboard')
     const { user } = useContext(AuthContext)
     const [axiosSecure] = useAxiosSecure()
     const { id } = useParams()

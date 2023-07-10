@@ -2,8 +2,14 @@ import Lottie from "lottie-react";
 import welcome from '../../../../public/142725-telegram-welcome-sticker.json'
 import { useContext } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider/AuthProvider";
+import useTitle from "../../../CustomHook/useTitle/useTitle";
+import useScroll from "../../../CustomHook/useScroll/useScroll";
+import { useLocation } from "react-router-dom";
 
 const Welcome = () => {
+    const location = useLocation()
+    useScroll(location.pathname)
+    useTitle('Welcome | Dashboard')
     const {user} = useContext(AuthContext)
     return (
         <div className="flex flex-col lg:flex-row items-center gap-10">

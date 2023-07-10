@@ -2,9 +2,14 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../CustomHook/useAxiosSecure/useAxiosSecure";
 import useNewProducts from "../../../../CustomHook/useNewProducts/useNewProducts";
 import { BsFillTrashFill } from 'react-icons/bs'
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import useTitle from "../../../../CustomHook/useTitle/useTitle";
+import useScroll from "../../../../CustomHook/useScroll/useScroll";
 
 const MyNewProducts = () => {
+    const location = useLocation()
+    useScroll(location.pathname)
+    useTitle('My New Product | Dashboard')
     const [axiosSecure] = useAxiosSecure()
     const [newProducts, refetch] = useNewProducts()
     function removeProduct(id) {

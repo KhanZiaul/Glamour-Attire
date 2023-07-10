@@ -2,15 +2,19 @@ import { useEffect, useState } from "react";
 import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
 import { BsCart2 } from 'react-icons/bs';
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useLocation } from "react-router-dom";
 import bgImage from '../../assets/img/banner/b1.jpg'
 import { ScaleLoader } from 'react-spinners';
+import useTitle from "../../CustomHook/useTitle/useTitle";
+import useScroll from "../../CustomHook/useScroll/useScroll";
 
 const Shop = () => {
+
+    const location = useLocation()
+    useScroll(location.pathname)
+    useTitle('Shop')
     const [products, setProducts] = useState()
-
     // Pegination 
-
     const { totalProducts } = useLoaderData()
     const [currentpage, setCurrentPage] = useState(0)
     const [itemsperPage, setItemsperPage] = useState(5)

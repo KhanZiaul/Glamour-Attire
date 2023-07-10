@@ -1,11 +1,17 @@
 import { useQuery } from "@tanstack/react-query";
 import { useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import useAxiosSecure from "../../CustomHook/useAxiosSecure/useAxiosSecure";
 import Swal from "sweetalert2";
+import useTitle from "../../CustomHook/useTitle/useTitle";
+import useScroll from "../../CustomHook/useScroll/useScroll";
 
 const ProductDetails = () => {
+
+    const location = useLocation()
+    useScroll(location.pathname)
+    useTitle('Product Details')
     const { id } = useParams()
     const [axiosSecure] = useAxiosSecure()
     const {user} = useContext(AuthContext)
