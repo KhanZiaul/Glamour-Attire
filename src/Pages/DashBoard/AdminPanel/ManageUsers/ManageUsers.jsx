@@ -4,9 +4,15 @@ import useAxiosSecure from "../../../../CustomHook/useAxiosSecure/useAxiosSecure
 import Swal from "sweetalert2";
 
 import { BsFillTrashFill } from 'react-icons/bs'
+import useTitle from "../../../../CustomHook/useTitle/useTitle";
+import useScroll from "../../../../CustomHook/useScroll/useScroll";
+import { useLocation } from "react-router-dom";
 
 
 const ManageUsers = () => {
+    const location = useLocation()
+    useScroll(location.pathname)
+    useTitle('Manage Users | Dashboard')
     const [axiosSecure] = useAxiosSecure()
 
     const [manageUsers, refetch] = useManageUsers()

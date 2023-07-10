@@ -1,11 +1,15 @@
 import Swal from "sweetalert2";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import useProducts from "../../../../CustomHook/useProducts/useProducts";
 import useAxiosSecure from "../../../../CustomHook/useAxiosSecure/useAxiosSecure";
+import useTitle from "../../../../CustomHook/useTitle/useTitle";
+import useScroll from "../../../../CustomHook/useScroll/useScroll";
 
 
 const ManageProducts = () => {
-
+    const location = useLocation()
+    useScroll(location.pathname)
+    useTitle('Manage Products | Dashboard')
     const [axiosSecure] = useAxiosSecure()
     const [allProducts, refetch] = useProducts()
     const allNewProducts = allProducts?.filter(product => product?.isNew === "true")
