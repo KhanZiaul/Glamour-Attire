@@ -18,7 +18,7 @@ const ProductDetails = () => {
     const { data } = useQuery({
         queryKey: ['product'],
         queryFn: async () => {
-            const data = await fetch(`http://localhost:3000/product/${id}`)
+            const data = await fetch(`https://glamour-attire.vercel.app/product/${id}`)
             return data.json()
         }
     })

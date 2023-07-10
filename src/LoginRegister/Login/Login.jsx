@@ -51,7 +51,7 @@ const Login = () => {
                 const user = result.user;
                 console.log(user)
                 if (user && user?.email) {
-                    axios.post(`http://localhost:3000/user/${user?.email}`, { name: user.displayName, email: user?.email, image: user.photoURL, role: "customer" })
+                    axios.post(`https://glamour-attire.vercel.app/user/${user?.email}`, { name: user.displayName, email: user?.email, image: user.photoURL, role: "customer" })
                         .then(data => {
                             console.log(data.data)
                         })
@@ -71,7 +71,7 @@ const Login = () => {
                 const user = result.user;
                 console.log(user)
                 if (user && user?.email) {
-                    axios.post(`http://localhost:3000/user/${user?.email}`, { name: user.displayName, email: user?.email, image: user.photoURL, role: "customer" })
+                    axios.post(`https://glamour-attire.vercel.app/user/${user?.email}`, { name: user.displayName, email: user?.email, image: user.photoURL, role: "customer" })
                         .then(data => {
                             console.log(data.data)
                         })

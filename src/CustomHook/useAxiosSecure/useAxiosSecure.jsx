@@ -5,7 +5,7 @@ import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
 
 
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:3000'
+    baseURL: 'https://glamour-attire.vercel.app'
 })
 function useAxiosSecure() {
 

@@ -38,7 +38,7 @@ const router = createBrowserRouter([
       {
         path: '/shop',
         element: <Shop></Shop>,
-        loader: () => fetch(`http://localhost:3000/totalProducts`)
+        loader: () => fetch(`https://glamour-attire.vercel.app/totalProducts`)
       },
       {
         path: '/productDetails/:id',

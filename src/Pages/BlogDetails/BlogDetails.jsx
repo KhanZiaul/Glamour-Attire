@@ -13,7 +13,7 @@ const BlogDetails = () => {
     const { data } = useQuery({
         queryKey: ['blogs'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:3000/blogs/${id}`)
+            const res = await fetch(`https://glamour-attire.vercel.app/blogs/${id}`)
             return res.json()
         }
     })

@@ -20,7 +20,7 @@ const Shop = () => {
     const [itemsperPage, setItemsperPage] = useState(5)
 
     useEffect(() => {
-        fetch(`http://localhost:3000/products?page=${currentpage}&limit=${itemsperPage}`)
+        fetch(`https://glamour-attire.vercel.app/products?page=${currentpage}&limit=${itemsperPage}`)
             .then(res => res.json())
             .then(datas => {
                 const approvedDatas = datas?.filter(data => data.isApproved === "approved")

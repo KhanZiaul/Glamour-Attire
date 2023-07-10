@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const FeaturedProducts = () => {
     const [featuredProducts, setFeaturedProducts] = useState()
     useEffect(() => {
-        fetch('http://localhost:3000/products/features')
+        fetch('https://glamour-attire.vercel.app/products/features')
             .then(res => res.json())
             .then(datas => {
                 const approvedDatas = datas?.filter(data => data.isApproved === "approved")

@@ -38,7 +38,7 @@ const AuthProvider = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser)
             if (currentUser) {
-                axios.post('http://localhost:3000/jwt', { email: currentUser?.email })
+                axios.post('https://glamour-attire.vercel.app/jwt', { email: currentUser?.email })
                     .then(data => {
                         localStorage.setItem('access-token', data.data.token)
                         setLoading(false)
