@@ -24,6 +24,7 @@ import AdminProvider from "../Provider/AdminProvider/AdminProvider";
 import SellerProvider from "../Provider/SellerProvider/SellerProvider";
 import BlogDetails from "../Pages/BlogDetails/BlogDetails";
 import ContactUs from "../Pages/ContactUs/ContactUs";
+import TermsConditions from "../Pages/TermsConditions/TermsConditions";
 
 const router = createBrowserRouter([
   {
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>
+      },
+      {
+        path:'/termsCondition',
+        element:<TermsConditions></TermsConditions>
       }
     ]
   },

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 const TermsConditions = () => {
     return (
 
-        <div className='my-10 border-2 p-10 mx-4'>
+        <div className='pt-28 border-2 p-10 '>
 
             <p className='text-3xl font-semibold text-center my-4'>Terms and Conditions</p>
 
@@ -17,16 +17,15 @@ const TermsConditions = () => {
 
             5. Privacy Policy: This outlines how the news site collects, uses, and protects user data, including any third-party services that may be used. <br />
 
-            6. Termination Clause: This outlines the terms and conditions for terminating the user's account or access to the news site, such as breach of contract or non-payment. <br />
+            6. Termination Clause: This outlines the terms and conditions for terminating the users account or access to the news site, such as breach of contract or non-payment. <br />
 
             7. Liability Limitations: This limits the liability of the news site for any damages or losses incurred by the user. <br />
 
             8. Governing Law: This specifies which laws and regulations govern the agreement and any disputes that may arise. <br />
 
-            It's important to carefully read and understand the terms and conditions
+            It is important to carefully read and understand the terms and conditions
 
             <p className='my-7 underline text-sky-500 text-right'><Link to='/register'>Go Back Register</Link></p>
-
         </div>
     );
 };

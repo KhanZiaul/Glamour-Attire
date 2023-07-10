@@ -10,7 +10,7 @@ const Footer = () => {
                     <img src={logo} alt="logo" />
                     <p className='my-3 text-center'>Glamour Attire providing reliable clothes since 2020</p>
                 </div>
-                <div className="footer p-10 text-base-content lg:ms-24">
+                <div className="footer p-10 text-base-content ">
                     <div>
                         <span className="footer-title">Services</span>
                         <Link to='/' className="link link-hover">Home</Link>
@@ -24,7 +24,7 @@ const Footer = () => {
                     </div>
                     <div>
                         <span className="footer-title">Legal</span>
-                        <a className="link link-hover">Terms and Conditions</a>
+                        <Link to='/termsCondition' className="link link-hover">Terms&Conditions</Link>
                     </div>
                     <div>
                         <span className="footer-title">Social Site</span>
