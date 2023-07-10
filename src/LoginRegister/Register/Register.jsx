@@ -1,12 +1,17 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form"
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import axios from "axios";
+import useScroll from "../../CustomHook/useScroll/useScroll";
+import useTitle from "../../CustomHook/userTitle/useTitle";
 
 const Register = () => {
 
+    const location = useLocation()
+    useScroll(location.pathname)
+    useTitle('Register')
     const { createUser, logOut } = useContext(AuthContext)
     const [color, setColor] = useState(true)
     const navigate = useNavigate()

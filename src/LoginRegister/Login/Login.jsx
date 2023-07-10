@@ -6,17 +6,20 @@ import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import axios from "axios";
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
+import useScroll from "../../CustomHook/useScroll/useScroll";
+import useTitle from "../../CustomHook/userTitle/useTitle";
 
 
 const Login = () => {
-
+    const location = useLocation()
+    useScroll(location.pathname)
+    useTitle('Login')
     const { signinUser, signInPopup } = useContext(AuthContext)
     const [color, setColor] = useState(true)
     const [loginMessage, setLoginMessage] = useState('')
     const [captcha, setCaptcha] = useState(true)
     const googleProvider = new GoogleAuthProvider();
     const navigate = useNavigate()
-    const location = useLocation()
     const from = location?.state?.from?.pathname || '/'
     const githubProvider = new GithubAuthProvider();
     const {
