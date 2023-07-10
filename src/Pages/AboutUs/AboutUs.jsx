@@ -5,6 +5,9 @@ import b2 from '../../assets/img/US/b2.jpg'
 import g1 from '../../assets/img/US/g1.jpg'
 import g2 from '../../assets/img/US/g2.jpg'
 import g3 from '../../assets/img/US/g3.jpg'
+import quality from '../../assets/img/Service/certificate.jpg'
+import delivery from '../../assets/img/Service/deliver.jpg'
+import order from '../../assets/img/Service/order.jpg'
 const AboutUs = () => {
     return (
         <div className='pt-12 lg:pt-16 mb-10'>
@@ -29,34 +32,52 @@ const AboutUs = () => {
             </div>
 
             <div className='mx-20'>
+                <h2 className='text-3xl text-center my-16 font-bold'>Services</h2>
+                <div className='grid grid-cols-1 lg:grid-cols-2'>
+                    <div data-aos="zoom-in-up" className='space-y-2 mb-10 flex flex-col items-center justify-center'>
+                        <img className='w-full lg:w-[400px] lg:h-[450px] mb-10' src={order} alt="" />
+                        <h2 className='my-2 text-center text-xl font-semibold'>Easy To Order</h2>
+                    </div>
+                    <div data-aos="zoom-in-up" className='space-y-2 mb-10 flex flex-col items-center justify-center'>
+                        <img className='w-full lg:w-[400px] lg:h-[450px] mb-10' src={delivery} alt="" />
+                        <h2 className='my-2 text-center text-xl font-semibold'>Fastest Delivery </h2>
+                    </div>
+                </div>
+                <div data-aos="zoom-in-up" className='space-y-2 mb-10 flex flex-col items-center justify-center'>
+                    <img className='w-full lg:w-[400px] lg:h-[500px] mb-10' src={quality} alt="" />
+                    <h2 className='my-2 text-center text-xl font-semibold'>Best Quality</h2>
+                </div>
+            </div>
+
+            <div className='mx-20'>
                 <h2 className='text-3xl text-center my-16 font-bold'>Meet Our Team Members</h2>
                 <div className='grid grid-cols-1 lg:grid-cols-2'>
-                    <div data-aos="fade-right" className='space-y-2 mb-10 flex flex-col items-center justify-center'>
-                        <img className='w-full lg:w-[400px] lg:h-[500px] mb-10' src={b1} alt="" />
+                    <div data-aos="zoom-in-up" className='space-y-2 mb-10 flex flex-col items-center justify-center'>
+                        <img className='w-full lg:w-[400px] lg:h-[450px] mb-10' src={b1} alt="" />
                         <h2 className='text-xl font-bold'>Jhonny Khalifa</h2>
                         <p className='font-bold'>Senior HR</p>
                     </div>
 
-                    <div data-aos="fade-left" className='space-y-2 mb-10 flex flex-col items-center justify-center'>
-                        <img className='w-full lg:w-[400px] lg:h-[500px] mb-10' src={g1} alt="" />
+                    <div data-aos="zoom-in-up" className='space-y-2 mb-10 flex flex-col items-center justify-center'>
+                        <img className='w-full lg:w-[400px] lg:h-[450px] mb-10' src={g1} alt="" />
                         <h2 className='text-xl font-bold'>Sophia Perez</h2>
                         <p className='font-bold'>Head of Sales</p>
                     </div>
 
-                    <div data-aos="fade-right" className='space-y-2 mb-10 flex flex-col items-center justify-center'>
-                        <img className='w-full lg:w-[400px] lg:h-[500px] mb-10' src={g2} alt="" />
+                    <div data-aos="zoom-in-up" className='space-y-2 mb-10 flex flex-col items-center justify-center'>
+                        <img className='w-full lg:w-[400px] lg:h-[450px] mb-10' src={g2} alt="" />
                         <h2 className='text-xl font-bold'>Aliah Lana</h2>
                         <p className='font-bold'>Jr. Sales Manager</p>
                     </div>
 
-                    <div data-aos="fade-left" className='space-y-2 mb-10 flex flex-col items-center justify-center'>
-                        <img className='w-full lg:w-[400px] lg:h-[500px] mb-10' src={g3} alt="" />
+                    <div data-aos="zoom-in-up" className='space-y-2 mb-10 flex flex-col items-center justify-center'>
+                        <img className='w-full lg:w-[400px] lg:h-[450px] mb-10' src={g3} alt="" />
                         <h2 className='text-xl font-bold'>Natali Chirgi</h2>
                         <p className='font-bold'>Product Desinger</p>
                     </div>
 
                 </div>
-                <div data-aos="flip-up" className='space-y-2 mb-10 flex flex-col items-center justify-center'>
+                <div data-aos="zoom-in-up" className='space-y-2 mb-10 flex flex-col items-center justify-center'>
                     <img className='w-full lg:w-[400px] lg:h-[500px] mb-10' src={b2} alt="" />
                     <h2 className='text-xl font-bold'>Loki Bright</h2>
                     <p className='font-bold'>Growth Manager</p>
