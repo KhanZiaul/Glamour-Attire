@@ -7,10 +7,10 @@ function useProducts(){
     const [axiosSecure] = useAxiosSecure()
     const {loading} = useContext(AuthContext)
     const { data : allProducts = [] , refetch} = useQuery({
-        queryKey:['allProducts'],
+        queryKey:['allProductsCollections'],
         enabled:!loading,
         queryFn:async()=>{
-            const res = await axiosSecure.get('/products')
+            const res = await axiosSecure.get('/allProductCollections')
             return res.data
         }
     })

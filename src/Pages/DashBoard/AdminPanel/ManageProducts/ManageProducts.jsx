@@ -12,6 +12,7 @@ const ManageProducts = () => {
     useTitle('Manage Products | Dashboard')
     const [axiosSecure] = useAxiosSecure()
     const [allProducts, refetch] = useProducts()
+    console.log(allProducts)
     const allNewProducts = allProducts?.filter(product => product?.isNew === "true")
     console.log(allNewProducts)
 
