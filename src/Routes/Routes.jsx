@@ -25,11 +25,13 @@ import SellerProvider from "../Provider/SellerProvider/SellerProvider";
 import BlogDetails from "../Pages/BlogDetails/BlogDetails";
 import ContactUs from "../Pages/ContactUs/ContactUs";
 import TermsConditions from "../Pages/TermsConditions/TermsConditions";
+import ErrorPage from "../Pages/Shared/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',
